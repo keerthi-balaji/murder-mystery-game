@@ -1,12 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 body {
   background: #f5ecd7;
   font-family: 'Special Elite', cursive, Arial, sans-serif;
   color: #222;
-  margin: 0;
+  margin: 10px;
   padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.suspects-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 120px); 
+  padding-bottom: 2em;
 }
 
 .page-header {
@@ -24,7 +36,17 @@ body {
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
+  margin-top: 0.5em;
 }
+
+.page-body {
+  align-items: left;
+  font-size: 1em;
+  margin-top: 10em; 
+  margin-bottom: 10px;
+  font-family: 'Special Elite', cursive;
+  position: absolute;
+ }
 
 .back-arrow {
   position: absolute;
@@ -44,52 +66,86 @@ body {
 }
 
 .suspect-card {
-  width: 160px;
-  padding: 1em;
+  display: inline-block;
+  margin: 0.5em;
+  padding: 0.5em;
   background: #fffbe9;
-  border-radius: 12px;
-  box-shadow: 2px 2px 8px #00000022;
+  border-radius: 18px;
+  box-shadow: 1px 1px 12px #00000022;
   cursor: pointer;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.suspect-card:hover {
-  transform: scale(1.05);
-  box-shadow: 4px 4px 12px #00000030;
+  text-align: justify;
+  width: 250px;        
+  height: 350px;        
+  perspective: 1200px;
+  vertical-align: top;
+  position: relative;
 }
 
-.suspect-img {
-  width: 100px;
-  height: 100px;
+.suspect-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.suspect-card.flipped .suspect-inner {
+  transform: rotateY(-180deg);
+}
+
+.suspect-front, .suspect-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0; top: 0;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;    
+  padding: 1em 0.5em;        
+}
+
+.suspect-back {
+  background: #fffbe9;
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+
+.suspect-front {
+  z-index: 1;
+}
+
+.suspect-img-front {
+  width: 130px;              
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #ccc;
   background: #eee;
+  margin: 0 auto 0.5em auto;  
+  display: block;
 }
 
-.suspect-card div {
+.suspect-img-back {
+  width: 60px;              
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  background: #eee;
+  margin: 0 auto 0.5em auto;  
+  display: block;
+}
+
+.suspect-name {
   font-family: 'Special Elite', sans-serif;
+  font-weight: bold;
   font-size: 1rem;
   margin-top: 0.5em;
-}
-
-.overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-.overlay.hidden {
-  display: none;
-}
-.overlay-content {
-  background: #fffbe9;
-  padding: 2em;
-  border-radius: 10px;
-  min-width: 300px;
-  max-width: 90vw;
-  box-shadow: 0 0 20px #00000044;
+  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
 }
