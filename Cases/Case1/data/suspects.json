@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Dr. Leena Ramaswamy",
+    "image": "/Images/suspect1.png",
+    "details": "World-renowned botanist, victim."
+  },
+  {
+    "name": "Mr. Rajiv Menon",
+    "image": "/Images/suspect2.png",
+    "details": "Event organizer, had a heated argument with the victim."
+  }
+]

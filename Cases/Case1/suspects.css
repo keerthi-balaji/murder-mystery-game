@@ -1,0 +1,49 @@
+body {
+  background: #f5ecd7;
+  font-family: 'Creepster', cursive, Arial, sans-serif;
+  color: #222;
+}
+.suspect-card {
+  display: inline-block;
+  margin: 1em;
+  padding: 1em;
+  background: #fffbe9;
+  border-radius: 8px;
+  box-shadow: 1px 1px 6px #00000022;
+  cursor: pointer;
+  text-align: center;
+}
+.suspect-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.overlay.hidden {
+  display: none;
+}
+.overlay-content {
+  background: #fffbe9;
+  padding: 2em;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 90vw;
+  box-shadow: 0 0 20px #00000044;
+}
+.back-arrow {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 2em;
+  text-decoration: none;
+  color: #222;
+}

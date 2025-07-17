@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Case 1 - Puzzle Mode</title>
+  <link rel="stylesheet" href="case1.css">
+</head>
+<body>
+  <a href="../../index.html" class="back-arrow">&#8592;</a>
+  <h1 class="case-title">Case 1 – Puzzle Mode</h1>
+  <div class="case-buttons">
+    <button class="detail-btn" data-detail="crime-scene">crime scene details</button>
+    <button class="detail-btn" data-detail="witness">Witness statements</button>
+    <button class="detail-btn" data-detail="suspects">Suspects</button>
+    <button class="detail-btn" data-detail="forensic">Forensic</button>
+  </div>
+  <div class="case-details">
+    <p>Case details, instructions, and other info to help solve the mystery.</p>
+    <div class="logic-clues" id="logic-clues"></div>
+    <div class="answers">
+      <p>Click the below buttons to select your answers</p>
+      <button class="answer-btn" data-type="weapon">what</button>
+      <button class="answer-btn" data-type="suspect">who</button>
+      <button class="answer-btn" data-type="motive">why</button>
+    </div>
+  </div>
+  <div id="overlay" class="overlay hidden"></div>
+  <script src="case1.js"></script>
+</body>
+</html>
