@@ -1,12 +1,22 @@
 [
   {
-    "name": "Dr. Leena Ramaswamy",
-    "image": "/Images/suspect1.png",
-    "details": "World-renowned botanist, victim."
+    "name": "Dr. Mara Vellum",
+    "image": "/images/mara.png",
+    "details": "A celebrated but controversial botanist known for her sharp critiques and sharper ambition. Once a collaborator of Dr. Ramaswamy, now a vocal rival. She was seen collecting orchid samples earlier in the Orchid Dome and is rumored to have long envied Leena's fame and accolades."
   },
   {
-    "name": "Mr. Rajiv Menon",
-    "image": "/Images/suspect2.png",
-    "details": "Event organizer, had a heated argument with the victim."
+    "name": "Kiran Rao",
+    "image": "/images/kiran.png",
+    "details": "A former student of Dr. Ramaswamy who left her lab under a cloud of academic scandal. Claustrophobic and volatile, Kiran blames Leena for his stalled career. He was spotted near the Greenhouse, still in possession of a deactivated access keycard."
+  },
+  {
+    "name": "Eloise Mercier",
+    "image": "/images/eloise.png",
+    "details": "A wealthy patron and rare orchid collector with significant investments in horticultural patents. Eloise clashed with Dr. Ramaswamy over commercialization ethics. She was last seen reviewing donation logs in the Garden Library during the gala."
+  },
+  {
+    "name": "Felix Duval",
+    "image": "/images/felix.png",
+    "details": "Chief of security for the Solstice Botanical Gardens. Professional and discreet, Felix was secretly involved with Dr. Ramaswamy. Their relationship had recently soured. He was patrolling the Orchid Dome during a mysterious 7-minute camera blackout."
   }
 ]

@@ -17,7 +17,7 @@ function closePopup() {
 // Utility to show overlay
 function showOverlay(contentHtml) {
   const overlay = document.getElementById('overlay');
-  overlay.innerHTML = `<div class="overlay-content">${contentHtml}<br><button onclick="hideOverlay()">Close</button></div>`;
+  overlay.innerHTML = `<div class="overlay-content">${contentHtml}<br><button id="popup-close-btn" onclick="hideOverlay()">Close</button></div>`;
   overlay.classList.remove('hidden');
 }
 function hideOverlay() {
@@ -48,33 +48,81 @@ document.querySelectorAll('.detail-btn').forEach(btn => {
     if (type === 'witness') file = 'data/witness.txt';
     fetch(file)
       .then(res => res.text())
-      .then(text => showOverlay(`<h2>${btn.textContent}</h2><p>${text}</p>`));
+      .then(text => {
+        const formatted = text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
+        .replace(/\n/g, '<br>');
+        showOverlay(`<h2>${btn.textContent}</h2><p>${formatted}</p>`);
+      })
   });
 });
 
-// Answer selection
-document.querySelectorAll('.answer-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const type = btn.dataset.type;
-    fetch(`data/${type}-options.json`)
-      .then(res => res.json())
-      .then(options => {
-        let html = `<h2>Select ${type}</h2><form id="answer-form">`;
-        html += options.map(opt => `<label><input type="radio" name="answer" value="${opt}"> ${opt}</label><br>`).join('');
-        html += `<button type="submit">Submit</button></form>`;
-        showOverlay(html);
-        document.getElementById('answer-form').onsubmit = function(ev) {
-          ev.preventDefault();
-          const selected = this.answer.value;
-          fetch('data/answers.json')
-            .then(res => res.json())
-            .then(ans => {
-              const correct = ans[type];
-              showOverlay(selected === correct
-                ? `<h2>Correct!</h2><p>You chose the right answer.</p>`
-                : `<h2>Wrong!</h2><p>The correct answer was: ${correct}</p>`);
-            });
-        };
-      });
+const answerKeys = ['weapon', 'suspect', 'motive'];
+let correctAnswers = {};
+
+// Load correct answers
+fetch('data/answers.json')
+  .then(res => res.json())
+  .then(data => correctAnswers = data);
+
+// Populate dropdowns
+Promise.all(
+  answerKeys.map(key =>
+    fetch(`data/${key}-options.json`).then(res => res.json())
+  )
+).then(([weaponOpts, suspectOpts, motiveOpts]) => {
+  const selectData = { weapon: weaponOpts, suspect: suspectOpts, motive: motiveOpts };
+  answerKeys.forEach(key => {
+    const select = document.getElementById(key);
+    select.innerHTML = `<option value="">--Select--</option>` +
+      selectData[key].map(opt => `<option value="${opt}">${opt}</option>`).join('');
   });
+
+  const form = document.getElementById('inline-answer-form');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('change', () => {
+    const allSelected = answerKeys.every(key => form[key].value);
+    submitBtn.disabled = !allSelected;
+  });
+
+form.onsubmit = function (e) {
+  e.preventDefault();
+
+  const selections = {
+    weapon: form.weapon.value,
+    suspect: form.suspect.value,
+    motive: form.motive.value
+  };
+
+  fetch('data/answers.json')
+    .then(res => res.json())
+    .then(correctAnswers => {
+      fetch('data/feedback.json')
+        .then(res => res.json())
+        .then(feedback => {
+          const verdictHtml = Object.keys(selections).map(key => {
+            const selected = selections[key];
+            const correct = correctAnswers[key];
+            const isCorrect = selected === correct;
+
+            const explanation = isCorrect
+              ? feedback[key][selected]?.correct
+              : feedback[key][selected]?.wrong || "No info available.";
+
+            const verdictIcon = isCorrect ? "✅" : "❌";
+
+            return `
+              <div class="verdict-block">
+                <div class="verdict-icon">${verdictIcon}</div>
+                <h3>${key.toUpperCase()}: ${selected}</h3>
+                <p>${explanation}</p>
+              </div>
+            `;
+          }).join('');
+
+          showOverlay(`<h2>Case Review</h2>${verdictHtml}`);
+        });
+    });
+};
 });

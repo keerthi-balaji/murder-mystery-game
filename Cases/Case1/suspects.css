@@ -1,24 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap');
+
 body {
   background: #f5ecd7;
-  font-family: 'Creepster', cursive, Arial, sans-serif;
+  font-family: 'Special Elite', cursive, Arial, sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.page-header {
+  position: relative;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-title {
+  font-size: 2.5em;
+  font-family: 'Creepster', cursive;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+.back-arrow {
+  position: absolute;
+  top: 0em;
+  left: 0.5em;
+  font-size: 3em;
+  text-decoration: none;
   color: #222;
 }
+
+#suspects-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em;
+  padding: 1em;
+}
+
 .suspect-card {
-  display: inline-block;
-  margin: 1em;
+  width: 160px;
   padding: 1em;
   background: #fffbe9;
-  border-radius: 8px;
-  box-shadow: 1px 1px 6px #00000022;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px #00000022;
   cursor: pointer;
   text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.suspect-card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 12px #00000030;
+}
+
 .suspect-img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid #ccc;
+  background: #eee;
 }
+
+.suspect-card div {
+  font-family: 'Special Elite', sans-serif;
+  font-size: 1rem;
+  margin-top: 0.5em;
+}
+
 .overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -38,12 +92,4 @@ body {
   min-width: 300px;
   max-width: 90vw;
   box-shadow: 0 0 20px #00000044;
-}
-.back-arrow {
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  font-size: 2em;
-  text-decoration: none;
-  color: #222;
 }

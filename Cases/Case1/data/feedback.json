@@ -1,0 +1,46 @@
+{
+  "weapon": {
+    "Glass Vial": {
+      "correct": "Though the scene suggested blunt force trauma, forensic analysis confirmed the cause of death was poison from the stolen vial.",
+      "wrong": "The poison vial was ultimately confirmed as the real weapon — the other clues were all red herrings."
+    },
+    "Bronze Statue": {
+      "wrong": "The statue was a false lead — it was tipped over after the murder to confuse investigators."
+    },
+    "Pruning Shears": {
+      "wrong": "The shears were untouched, left behind in the humid greenhouse."
+    },
+    "Garden Trowel": {
+      "wrong": "Clean and unused — this wasn’t the murder weapon, just a tool left on site."
+    }
+  },
+  "suspect": {
+    "Felix Duval": {
+      "correct": "Felix had motive, means, and access. He blacked out security and used the lab materials to poison the victim."
+    },
+    "Rival Botanist": {
+      "wrong": "She left the Orchid Dome hours before the murder, and had no access to the lab or cameras."
+    },
+    "Former Student": {
+      "wrong": "They never entered the Orchid Dome due to claustrophobia — confirmed by witnesses."
+    },
+    "Investor": {
+      "wrong": "She had motive, but was seen in the Garden Library at the time of the murder."
+    }
+  },
+  "motive": {
+    "Revenge": {
+      "correct": "A bitter breakup and revoked access left Felix furious — and ultimately lethal.",
+      "wrong": "Revenge did play a role, but not for the suspect you selected."
+    },
+    "Jealousy": {
+      "wrong": "Jealousy can burn hot — but in this case, it didn’t lead to murder."
+    },
+    "Financial Gain": {
+      "wrong": "Money is always a motive — but the real killer had something more personal driving them."
+    },
+    "Professional Resentment": {
+      "wrong": "Grudges ran deep among the rivals, but the killer wasn’t driven by pride or ego alone."
+    }
+  }
+}

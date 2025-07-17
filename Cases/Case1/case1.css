@@ -1,23 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap');
+
 body {
   background: #f5ecd7;
+  font-family: 'Special Elite', cursive, Arial, sans-serif;
+  color: #222;
+}
+.case-title {
   font-family: 'Creepster', cursive, Arial, sans-serif;
   color: #222;
 }
-
 .button-group {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
 }
-
 button {
   padding: 0.75rem 1.5rem;
   background-color: #ddd;
   font-weight: bold;
   cursor: pointer;
 }
-
 .popup {
   position: fixed;
   top: 10%;
@@ -28,7 +32,6 @@ button {
   padding: 1rem;
   z-index: 1000;
 }
-
 .hidden {
   display: none;
 }
@@ -55,20 +58,32 @@ button {
   border-radius: 6px;
   box-shadow: 1px 1px 4px #00000022;
 }
-.answers {
+.puzzle-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4em;
   margin-top: 2em;
+  margin-left: 5em;
+  flex-wrap: wrap; 
+}
+.answers {
+  flex: 1;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 1em;
 }
-.answer-btn {
-  background: #d3cfc7;
-  border: none;
-  padding: 0.5em 2em;
-  margin: 0.3em 0;
+select {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.4em;
+  margin-bottom: 0.8em;
+  font-family: 'Special Elite', cursive;
   font-size: 1em;
-  cursor: pointer;
   border-radius: 6px;
+  border: 1px solid #aaa;
 }
 .overlay {
   position: fixed;
@@ -87,14 +102,43 @@ button {
   padding: 2em;
   border-radius: 10px;
   min-width: 300px;
-  max-width: 90vw;
+  max-width: 80vw;
   box-shadow: 0 0 20px #00000044;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 .back-arrow {
   position: absolute;
-  top: 1em;
-  left: 1em;
-  font-size: 2em;
+  top: 0em;
+  left: 0.5em;
+  font-size: 3em;
   text-decoration: none;
   color: #222;
 }
+#submit-btn, #popup-close-btn {
+  font-family: inherit;
+  font-size: 1.2em;
+  background: #d3cfc7;
+  border: none;
+  padding: 0.7em 2em;
+  margin: 0.5em;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 1px 1px 4px #00000022;
+}
+.verdict-block {
+  background: #fffdf4;
+  padding: 0.5em;
+  margin: 0.3em 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.verdict-icon {
+  font-size: 1.2em;
+  margin-bottom: 0.1em;
+}
+.correct-answer {
+  font-style: italic;
+  color: #444;
+}
+
