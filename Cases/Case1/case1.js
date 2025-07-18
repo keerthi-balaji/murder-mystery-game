@@ -1,6 +1,9 @@
 function showPopup(type) {
   const popup = document.getElementById("popup");
   const content = document.getElementById("popup-content");
+  const imageHtml = `
+  <img src="/images/leena.png" alt="Dr. Leena Ramaswamy" class="victim-img-fixed">
+`;
 
   fetch(`data/${type}.txt`)
     .then(res => res.text())
@@ -43,8 +46,49 @@ document.querySelectorAll('.detail-btn').forEach(btn => {
       return;
     }
     let file = '';
-    if (type === 'crime-scene') file = 'data/crime-scene.txt';
-    if (type === 'forensic') file = 'data/forensic.txt';
+
+    if (type === 'crime-scene'){ file = 'data/crime-scene.txt'; 
+      fetch(file)
+      .then(res => res.text())
+      .then(text => {
+      const formatted = text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n/g, '<br>');
+
+      const imageHtml = `<img src="/Images/Mysterious Orchid Gala Crime Scene.png" alt="Crime scene" class="crime-scene-img">`;
+
+      const contentHtml = `
+        ${imageHtml}
+        <h2>${btn.textContent}</h2>
+        <div class="crime-scene-wrapper"><p>${formatted}</p></div>
+      `;
+
+      showOverlay(contentHtml);
+    });
+  return;
+}
+    if (type === 'forensic') {
+    file = 'data/forensic.txt';
+    fetch(file)
+      .then(res => res.text())
+      .then(text => {
+        const formatted = text
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\n/g, '<br>');
+
+        // Float image to top-right
+        const imageHtml = `<img src="/images/leena.png" alt="Dr. Leena Ramaswamy" class="victim-img-fixed">`;
+
+        const contentHtml = `
+          ${imageHtml}
+          <h2>${btn.textContent}</h2>
+          <div class="forensic-wrapper"><p>${formatted}</p></div>
+        `;
+
+        showOverlay(contentHtml);
+      });
+  return;
+}
     if (type === 'witness') file = 'data/witness.txt';
     fetch(file)
       .then(res => res.text())

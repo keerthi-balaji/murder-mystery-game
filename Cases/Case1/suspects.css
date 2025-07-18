@@ -67,18 +67,19 @@ html, body {
 
 .suspect-card {
   display: inline-block;
-  margin: 0.5em;
-  padding: 0.5em;
+  margin: 0.3em;
+  padding: 0.4em;
   background: #fffbe9;
   border-radius: 18px;
   box-shadow: 1px 1px 12px #00000022;
   cursor: pointer;
   text-align: justify;
-  width: 250px;        
-  height: 350px;        
+  width: 260px;        
+  height: 390px;        
   perspective: 1200px;
   vertical-align: top;
   position: relative;
+  margin-top: 5em;
 }
 
 .suspect-inner {
