@@ -1,10 +1,7 @@
 function showPopup(type) {
   const popup = document.getElementById("popup");
   const content = document.getElementById("popup-content");
-  const imageHtml = `
-  <img src="/images/leena.png" alt="Dr. Leena Ramaswamy" class="victim-img-fixed">
-`;
-
+  
   fetch(`data/${type}.txt`)
     .then(res => res.text())
     .then(text => {
@@ -20,12 +17,23 @@ function closePopup() {
 // Utility to show overlay
 function showOverlay(contentHtml) {
   const overlay = document.getElementById('overlay');
-  overlay.innerHTML = `<div class="overlay-content">${contentHtml}<br><button id="popup-close-btn" onclick="hideOverlay()">Close</button></div>`;
+  overlay.innerHTML = `
+  <div class="overlay-click-area">
+    <div class="overlay-content" onclick="event.stopPropagation()">
+      ${contentHtml}
+      <br><button id="popup-close-btn" onclick="hideOverlay()">Close</button>
+    </div>
+  </div>
+`;
   overlay.classList.remove('hidden');
 }
 function hideOverlay() {
   document.getElementById('overlay').classList.add('hidden');
 }
+
+document.getElementById('overlay').addEventListener('click', function () {
+  hideOverlay();
+});
 
 // Load logic clues
 fetch('data/logic-clues.json')
