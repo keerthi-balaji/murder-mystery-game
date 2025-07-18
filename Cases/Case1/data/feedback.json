@@ -2,45 +2,45 @@
   "weapon": {
     "Glass Vial": {
       "correct": "Though the scene suggested blunt force trauma, forensic analysis confirmed the cause of death was poison from the stolen vial.",
-      "wrong": "The poison vial was ultimately confirmed as the real weapon — the other clues were all red herrings."
+      "wrong": "Not every toxin leaves a visible trace — but clues aren’t always obvious either."
     },
     "Bronze Statue": {
-      "wrong": "The statue was a false lead — it was tipped over after the murder to confuse investigators."
+      "wrong": "Heavy, dramatic, and definitely part of the scene — but not everything is as it looks."
     },
     "Pruning Shears": {
-      "wrong": "The shears were untouched, left behind in the humid greenhouse."
+      "wrong": "Sharp enough to kill, but that doesn't mean they were used."
     },
     "Garden Trowel": {
-      "wrong": "Clean and unused — this wasn’t the murder weapon, just a tool left on site."
+      "wrong": "Clean, common, and easy to overlook. Doesn’t mean it’s the answer."
     }
   },
   "suspect": {
-    "Felix Duval": {
+    "Sir Felix Duval": {
       "correct": "Felix had motive, means, and access. He blacked out security and used the lab materials to poison the victim."
     },
-    "Rival Botanist": {
-      "wrong": "She left the Orchid Dome hours before the murder, and had no access to the lab or cameras."
+    "Dr. Mara Vellum": {
+      "wrong": "Tensions ran high, and she had reason — but opportunity? That’s another question."
     },
-    "Former Student": {
-      "wrong": "They never entered the Orchid Dome due to claustrophobia — confirmed by witnesses."
+    "Mr. Kiran Rao": {
+      "wrong": "He had unfinished business with the victim, but there’s more to motive than old wounds."
     },
-    "Investor": {
-      "wrong": "She had motive, but was seen in the Garden Library at the time of the murder."
+    "Madame Eloise Mercier": {
+      "wrong": "Plenty of people had something to gain. Doesn't mean they made a move."
     }
   },
   "motive": {
-    "Revenge": {
+    "Romantic Entanglement": {
       "correct": "A bitter breakup and revoked access left Felix furious — and ultimately lethal.",
-      "wrong": "Revenge did play a role, but not for the suspect you selected."
+      "wrong": "Love turns sour all the time… but not every heartbreak ends in homicide."
     },
-    "Jealousy": {
-      "wrong": "Jealousy can burn hot — but in this case, it didn’t lead to murder."
+    "Professional Jealousy": {
+      "wrong": "Envy's a slow burn. In this case? Hard to say how far it went."
     },
     "Financial Gain": {
-      "wrong": "Money is always a motive — but the real killer had something more personal driving them."
+      "wrong": "Money moves people — but so do emotions. Keep digging."
     },
-    "Professional Resentment": {
-      "wrong": "Grudges ran deep among the rivals, but the killer wasn’t driven by pride or ego alone."
+    "Personal Vendetta": {
+      "wrong": "Plenty of grudges. The question is: who finally acted on theirs?"
     }
   }
 }
