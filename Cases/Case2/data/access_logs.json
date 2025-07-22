@@ -1,0 +1,362 @@
+[
+    {
+        "employee_id": 2,
+        "location_id": 102,
+        "log_id": 1,
+        "timestamp": "2013-04-13 09:00:00"
+    },
+    {
+        "employee_id": 6,
+        "location_id": 101,
+        "log_id": 2,
+        "timestamp": "2013-04-13 09:00:00"
+    },
+    {
+        "employee_id": 8,
+        "location_id": 103,
+        "log_id": 3,
+        "timestamp": "2013-04-13 09:00:00"
+    },
+    {
+        "employee_id": 10,
+        "location_id": 105,
+        "log_id": 4,
+        "timestamp": "2013-04-13 09:00:00"
+    },
+    {
+        "employee_id": 11,
+        "location_id": 101,
+        "log_id": 5,
+        "timestamp": "2013-04-13 09:00:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "log_id": 6,
+        "timestamp": "2013-04-13 10:45:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 104,
+        "log_id": 7,
+        "timestamp": "2013-04-13 12:00:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 105,
+        "log_id": 8,
+        "timestamp": "2013-04-13 12:00:00"
+    },
+    {
+        "employee_id": 6,
+        "location_id": 104,
+        "log_id": 9,
+        "timestamp": "2013-04-13 12:00:00"
+    },
+    {
+        "employee_id": 8,
+        "location_id": 101,
+        "log_id": 10,
+        "timestamp": "2013-04-13 12:00:00"
+    },
+    {
+        "employee_id": 10,
+        "location_id": 103,
+        "log_id": 11,
+        "timestamp": "2013-04-13 12:00:00"
+    },
+    {
+        "employee_id": 11,
+        "location_id": 104,
+        "log_id": 12,
+        "timestamp": "2013-04-13 12:00:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 102,
+        "log_id": 13,
+        "timestamp": "2013-04-13 15:00:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 103,
+        "log_id": 14,
+        "timestamp": "2013-04-13 15:00:00"
+    },
+    {
+        "employee_id": 6,
+        "location_id": 102,
+        "log_id": 15,
+        "timestamp": "2013-04-13 15:00:00"
+    },
+    {
+        "employee_id": 8,
+        "location_id": 104,
+        "log_id": 16,
+        "timestamp": "2013-04-13 15:00:00"
+    },
+    {
+        "employee_id": 10,
+        "location_id": 108,
+        "log_id": 17,
+        "timestamp": "2013-04-13 15:00:00"
+    },
+    {
+        "employee_id": 11,
+        "location_id": 102,
+        "log_id": 18,
+        "timestamp": "2013-04-13 15:00:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "log_id": 19,
+        "timestamp": "2013-04-13 16:00:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 102,
+        "log_id": 20,
+        "timestamp": "2013-04-14 09:00:00"
+    },
+    {
+        "employee_id": 6,
+        "location_id": 101,
+        "log_id": 21,
+        "timestamp": "2013-04-14 09:00:00"
+    },
+    {
+        "employee_id": 8,
+        "location_id": 103,
+        "log_id": 22,
+        "timestamp": "2013-04-14 09:00:00"
+    },
+    {
+        "employee_id": 10,
+        "location_id": 105,
+        "log_id": 23,
+        "timestamp": "2013-04-14 09:00:00"
+    },
+    {
+        "employee_id": 11,
+        "location_id": 106,
+        "log_id": 24,
+        "timestamp": "2013-04-14 09:00:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "log_id": 25,
+        "timestamp": "2013-04-14 09:55:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 104,
+        "log_id": 26,
+        "timestamp": "2013-04-14 12:00:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 105,
+        "log_id": 27,
+        "timestamp": "2013-04-14 12:00:00"
+    },
+    {
+        "employee_id": 6,
+        "location_id": 104,
+        "log_id": 28,
+        "timestamp": "2013-04-14 12:00:00"
+    },
+    {
+        "employee_id": 8,
+        "location_id": 106,
+        "log_id": 29,
+        "timestamp": "2013-04-14 12:00:00"
+    },
+    {
+        "employee_id": 10,
+        "location_id": 103,
+        "log_id": 30,
+        "timestamp": "2013-04-14 12:00:00"
+    },
+    {
+        "employee_id": 11,
+        "location_id": 104,
+        "log_id": 31,
+        "timestamp": "2013-04-14 12:00:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 102,
+        "log_id": 32,
+        "timestamp": "2013-04-14 15:00:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 104,
+        "log_id": 33,
+        "timestamp": "2013-04-14 15:00:00"
+    },
+    {
+        "employee_id": 6,
+        "location_id": 102,
+        "log_id": 34,
+        "timestamp": "2013-04-14 15:00:00"
+    },
+    {
+        "employee_id": 8,
+        "location_id": 104,
+        "log_id": 35,
+        "timestamp": "2013-04-14 15:00:00"
+    },
+    {
+        "employee_id": 10,
+        "location_id": 108,
+        "log_id": 36,
+        "timestamp": "2013-04-14 15:00:00"
+    },
+    {
+        "employee_id": 11,
+        "location_id": 102,
+        "log_id": 37,
+        "timestamp": "2013-04-14 15:00:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "log_id": 38,
+        "timestamp": "2013-04-14 15:46:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "log_id": 39,
+        "timestamp": "2013-04-14 18:00:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 101,
+        "log_id": 40,
+        "timestamp": "2013-04-14 19:00:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 101,
+        "log_id": 41,
+        "timestamp": "2013-04-14 19:12:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 101,
+        "log_id": 42,
+        "timestamp": "2013-04-14 19:20:00"
+    },
+    {
+        "employee_id": 3,
+        "location_id": 101,
+        "log_id": 43,
+        "timestamp": "2013-04-14 19:45:00"
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "log_id": 44,
+        "timestamp": "2013-04-14 20:17:00"
+    },
+    {
+        "employee_id": 999,
+        "location_id": 101,
+        "log_id": 45,
+        "timestamp": "2013-04-14 20:32:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 102,
+        "log_id": 46,
+        "timestamp": "2013-04-15 09:00:00"
+    },
+    {
+        "employee_id": 6,
+        "location_id": 101,
+        "log_id": 47,
+        "timestamp": "2013-04-15 09:00:00"
+    },
+    {
+        "employee_id": 8,
+        "location_id": 103,
+        "log_id": 48,
+        "timestamp": "2013-04-15 09:00:00"
+    },
+    {
+        "employee_id": 10,
+        "location_id": 105,
+        "log_id": 49,
+        "timestamp": "2013-04-15 09:00:00"
+    },
+    {
+        "employee_id": 11,
+        "location_id": 106,
+        "log_id": 50,
+        "timestamp": "2013-04-15 09:00:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 104,
+        "log_id": 51,
+        "timestamp": "2013-04-15 12:00:00"
+    },
+    {
+        "employee_id": 6,
+        "location_id": 104,
+        "log_id": 52,
+        "timestamp": "2013-04-15 12:00:00"
+    },
+    {
+        "employee_id": 8,
+        "location_id": 106,
+        "log_id": 53,
+        "timestamp": "2013-04-15 12:00:00"
+    },
+    {
+        "employee_id": 10,
+        "location_id": 103,
+        "log_id": 54,
+        "timestamp": "2013-04-15 12:00:00"
+    },
+    {
+        "employee_id": 11,
+        "location_id": 104,
+        "log_id": 55,
+        "timestamp": "2013-04-15 12:00:00"
+    },
+    {
+        "employee_id": 2,
+        "location_id": 104,
+        "log_id": 56,
+        "timestamp": "2013-04-15 15:00:00"
+    },
+    {
+        "employee_id": 6,
+        "location_id": 102,
+        "log_id": 57,
+        "timestamp": "2013-04-15 15:00:00"
+    },
+    {
+        "employee_id": 8,
+        "location_id": 104,
+        "log_id": 58,
+        "timestamp": "2013-04-15 15:00:00"
+    },
+    {
+        "employee_id": 10,
+        "location_id": 108,
+        "log_id": 59,
+        "timestamp": "2013-04-15 15:00:00"
+    },
+    {
+        "employee_id": 11,
+        "location_id": 102,
+        "log_id": 60,
+        "timestamp": "2013-04-15 15:00:00"
+    }
+]

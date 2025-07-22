@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Silence in Server Room 6</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="case2.css" />
+</head>
+<body>
+  <div id="game-container">
+
+    <!-- Screen 1: Case intro -->
+    <section id="screen-1" class="game-screen">
+      <h1 class="case-title">Case 2: The Silence in Server Room 6</h1>
+      <p class="case-details">
+        The IT department’s most secure server room has gone silent. A critical breach is suspected. 
+        You, as the assistant to Detective Priya Sen, must help her investigate the digital footprints and uncover the truth.
+      </p>
+      <p class="instructions">
+        <strong>Instructions:</strong> Use your database and logic skills to help Detective Sen solve the case. Click <b>Next</b> to begin.
+      </p>
+      <div class="detective-intro">
+        <img src="detective.png" alt="Detective Priya Sen" class="detective-img" />
+        <p><b>Detective Priya Sen:</b> "Welcome, partner. Ready to dive into the data?"</p>
+      </div>
+      <button class="exit-btn" onclick="exitToHome()">Exit</button>
+      <button id="next-1" class="next-btn">Next</button>
+    </section>
+
+    <!-- Screen 2: Forensic report -->
+    <section id="screen-2" class="game-screen hidden">      
+      <button class="back-btn" onclick="goBack()">Back</button>
+      <p><b>Detective Sen:</b> "Before we start, review the forensic report for clues. Click the button below."</p>
+      <button class="action-btn" onclick="openForensicReport()">Open Forensic Report</button>
+      <button class="exit-btn" onclick="exitToHome()">Exit</button>
+      <button id="next-2" class="next-btn" disabled>Next</button>
+    </section>
+
+    <!-- Forensic Modal -->
+    <div id="forensic-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Forensic Report</h3>
+        <pre id="forensic-text"></pre>
+        <button id="close-forensic" class="action-btn">Close</button>
+      </div>
+    </div>
+
+
+    <!-- Screen 3: SQL Investigation -->
+    <section id="screen-3" class="game-screen hidden">
+      <button class="back-btn" onclick="goBack()">Back</button>
+      <button class="action-btn" onclick="openForensicReport()">View Forensic Report </button>
+      <button class="action-btn" onclick="openDatabaseInfo()">View Database Info</button>
+
+      <p><b>Detective Sen:</b> "Use the SQL console to investigate the database. Start by checking <b>access_logs</b> for who accessed Server Room 6."</p>
+      <div class="sql-console">
+        <label for="sql-query">SQL Query:</label>
+        <textarea id="sql-query" rows="3" cols="60"></textarea>
+        <button id="run-sql" class="action-btn">Run Query</button>
+        <pre id="sql-result"></pre>
+      </div>
+      <div id="sql-prompts"></div>
+            <button class="exit-btn" onclick="exitToHome()">Exit</button>
+      <button id="next-3" class="next-btn" disabled>Next</button>
+    </section>
+    <!-- Database Info Modal -->
+    <div id="dbinfo-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Database Tables & Relationships</h3>
+      <pre id="dbinfo-text"></pre>
+      <button class="action-btn" onclick="closeDatabaseInfo()">Close</button>
+    </div>
+    </div>
+
+
+    <!-- Screen 4: Final Answer -->
+    <section id="screen-4" class="game-screen hidden">
+      <button class="action-btn" onclick="openForensicReport()">View Forensic Report </button>
+      <p><b>Detective Sen:</b> "Who is responsible for the breach? Enter your answer below."</p>
+      <input type="text" id="final-answer" placeholder="Enter suspect's name" />
+      <button class="back-btn" onclick="goBack()">Back</button>
+      <button class="exit-btn" onclick="exitToHome()">Exit</button>
+      <button id="submit-answer" class="action-btn">Submit</button>
+      <div id="answer-feedback"></div>
+      <button id="finish-case" class="next-btn hidden">Close Case</button>
+    </section>
+
+  </div>
+  <script src="case2.js"></script>
+</body>
+</html>

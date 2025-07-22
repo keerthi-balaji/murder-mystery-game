@@ -1,0 +1,92 @@
+[
+    {
+        "is_restricted": 1,
+        "location_id": 101,
+        "name": "Server Room 6"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 102,
+        "name": "Break Room"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 103,
+        "name": "HR Office"
+    },
+    {
+        "is_restricted": 1,
+        "location_id": 104,
+        "name": "Data Center"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 105,
+        "name": "Meeting Room A"
+    },
+    {
+        "is_restricted": 1,
+        "location_id": 106,
+        "name": "Server Room 4"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 107,
+        "name": "Meeting Room D"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 108,
+        "name": "Conference Room C"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 109,
+        "name": "Waiting Room"
+    },
+    {
+        "is_restricted": 1,
+        "location_id": 110,
+        "name": "Conference Room A"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 111,
+        "name": "Reception Area"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 112,
+        "name": "Office Cubicle 1"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 113,
+        "name": "Office Cubicle 2"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 114,
+        "name": "Office Cubicle 3"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 115,
+        "name": "Office Cubicle 4"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 116,
+        "name": "Office Cubicle 5"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 117,
+        "name": "Office Cubicle 6"
+    },
+    {
+        "is_restricted": 0,
+        "location_id": 118,
+        "name": "Office Cubicle 8"
+    }
+]

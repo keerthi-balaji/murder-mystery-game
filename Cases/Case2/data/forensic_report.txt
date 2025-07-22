@@ -1,0 +1,28 @@
+Case ID: NX-AI-2013-0415
+Date of Report: April 15, 2013
+Prepared by: Forensic Examiner J. Salcedo
+
+**Crime Scene Observations**
+
+Upon entering Server Room 6 (Level 3 – Restricted Zone) at Neuronexus HQ, the body of Dr. Elina Rao was found slumped forward at Terminal A12. The lighting in the room was dimmed, and the terminal displayed a diagnostic interface in progress. No signs of forced entry or struggle were observed. A faint burn mark was present on the metal keyboard edge, and the air carried a detectable ozone odor, often associated with electrical discharge.
+A tool access panel behind the server rack was ajar, and scorch marks were observed on an internal grounding conduit. The victim was dressed in a standard lab coat, which showed no tearing; however, a small scorch hole was noted on the right glove.
+
+**Autopsy Results**
+
+Victim: Dr. Elina Rao
+Age: 37
+Sex: Female
+Time of Death Estimate: Between 7:00 PM and 9:00 PM, April 14, 2013
+Observed Cause of Death: Likely electrocution
+
+Dr. Elina Rao, age 37, was pronounced deceased at the scene. The estimated time of death was between 7:00 PM and 9:00 PM on April 14, 2013. External examination revealed a contact burn wound on the palm of the right hand and an exit wound on the left foot arch, consistent with electrical grounding. Minor singeing was observed around the temples.
+
+There were no signs of blunt force trauma or defensive injuries. Internally, the heart showed scarring consistent with a high-voltage shock. The pupils were fixed and dilated, and neural shutdown markers were present.
+
+**Evidence Recovered**
+
+•	Swabs from the terminal surface and surrounding floor
+•	Victim’s right glove and melted palm residue
+•	Scorched grounding cable fragment from the server rack
+•	Victim’s clothing and footwear for lab analysis
+•	Air sample for chemical trace (ozone presence)

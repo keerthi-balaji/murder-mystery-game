@@ -1,0 +1,1220 @@
+[
+    {
+        "employee_id": 2,
+        "location_id": 102,
+        "ping_id": 1,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 91
+    },
+    {
+        "employee_id": 3,
+        "location_id": 117,
+        "ping_id": 2,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 64
+    },
+    {
+        "employee_id": 5,
+        "location_id": 105,
+        "ping_id": 3,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 75
+    },
+    {
+        "employee_id": 6,
+        "location_id": 101,
+        "ping_id": 4,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 98
+    },
+    {
+        "employee_id": 7,
+        "location_id": 102,
+        "ping_id": 5,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 72
+    },
+    {
+        "employee_id": 8,
+        "location_id": 103,
+        "ping_id": 6,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 58
+    },
+    {
+        "employee_id": 9,
+        "location_id": 118,
+        "ping_id": 7,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 51
+    },
+    {
+        "employee_id": 10,
+        "location_id": 105,
+        "ping_id": 8,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 53
+    },
+    {
+        "employee_id": 11,
+        "location_id": 101,
+        "ping_id": 9,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 62
+    },
+    {
+        "employee_id": 12,
+        "location_id": 102,
+        "ping_id": 10,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 62
+    },
+    {
+        "employee_id": 13,
+        "location_id": 103,
+        "ping_id": 11,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 94
+    },
+    {
+        "employee_id": 14,
+        "location_id": 108,
+        "ping_id": 12,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 73
+    },
+    {
+        "employee_id": 15,
+        "location_id": 105,
+        "ping_id": 13,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 68
+    },
+    {
+        "employee_id": 16,
+        "location_id": 107,
+        "ping_id": 14,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 54
+    },
+    {
+        "employee_id": 17,
+        "location_id": 102,
+        "ping_id": 15,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 88
+    },
+    {
+        "employee_id": 18,
+        "location_id": 103,
+        "ping_id": 16,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 82
+    },
+    {
+        "employee_id": 19,
+        "location_id": 104,
+        "ping_id": 17,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 54
+    },
+    {
+        "employee_id": 20,
+        "location_id": 105,
+        "ping_id": 18,
+        "ping_time": "2013-04-13 09:00:00",
+        "signal_strength": 78
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "ping_id": 19,
+        "ping_time": "2013-04-13 10:45:00",
+        "signal_strength": 58
+    },
+    {
+        "employee_id": 1,
+        "location_id": 104,
+        "ping_id": 20,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 55
+    },
+    {
+        "employee_id": 2,
+        "location_id": 105,
+        "ping_id": 21,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 71
+    },
+    {
+        "employee_id": 3,
+        "location_id": 102,
+        "ping_id": 22,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 72
+    },
+    {
+        "employee_id": 5,
+        "location_id": 103,
+        "ping_id": 23,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 73
+    },
+    {
+        "employee_id": 6,
+        "location_id": 104,
+        "ping_id": 24,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 76
+    },
+    {
+        "employee_id": 7,
+        "location_id": 105,
+        "ping_id": 25,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 94
+    },
+    {
+        "employee_id": 8,
+        "location_id": 101,
+        "ping_id": 26,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 62
+    },
+    {
+        "employee_id": 9,
+        "location_id": 102,
+        "ping_id": 27,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 92
+    },
+    {
+        "employee_id": 10,
+        "location_id": 103,
+        "ping_id": 28,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 69
+    },
+    {
+        "employee_id": 11,
+        "location_id": 104,
+        "ping_id": 29,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 67
+    },
+    {
+        "employee_id": 12,
+        "location_id": 105,
+        "ping_id": 30,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 52
+    },
+    {
+        "employee_id": 13,
+        "location_id": 108,
+        "ping_id": 31,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 91
+    },
+    {
+        "employee_id": 14,
+        "location_id": 102,
+        "ping_id": 32,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 69
+    },
+    {
+        "employee_id": 15,
+        "location_id": 103,
+        "ping_id": 33,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 71
+    },
+    {
+        "employee_id": 16,
+        "location_id": 108,
+        "ping_id": 34,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 71
+    },
+    {
+        "employee_id": 17,
+        "location_id": 105,
+        "ping_id": 35,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 76
+    },
+    {
+        "employee_id": 18,
+        "location_id": 107,
+        "ping_id": 36,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 61
+    },
+    {
+        "employee_id": 19,
+        "location_id": 102,
+        "ping_id": 37,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 91
+    },
+    {
+        "employee_id": 20,
+        "location_id": 103,
+        "ping_id": 38,
+        "ping_time": "2013-04-13 12:00:00",
+        "signal_strength": 56
+    },
+    {
+        "employee_id": 3,
+        "location_id": 117,
+        "ping_id": 39,
+        "ping_time": "2013-04-13 13:10:00",
+        "signal_strength": 82
+    },
+    {
+        "employee_id": 1,
+        "location_id": 102,
+        "ping_id": 40,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 91
+    },
+    {
+        "employee_id": 2,
+        "location_id": 103,
+        "ping_id": 41,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 83
+    },
+    {
+        "employee_id": 5,
+        "location_id": 107,
+        "ping_id": 42,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 78
+    },
+    {
+        "employee_id": 6,
+        "location_id": 102,
+        "ping_id": 43,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 74
+    },
+    {
+        "employee_id": 7,
+        "location_id": 103,
+        "ping_id": 44,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 66
+    },
+    {
+        "employee_id": 8,
+        "location_id": 104,
+        "ping_id": 45,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 54
+    },
+    {
+        "employee_id": 9,
+        "location_id": 105,
+        "ping_id": 46,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 79
+    },
+    {
+        "employee_id": 10,
+        "location_id": 108,
+        "ping_id": 47,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 90
+    },
+    {
+        "employee_id": 11,
+        "location_id": 102,
+        "ping_id": 48,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 96
+    },
+    {
+        "employee_id": 12,
+        "location_id": 103,
+        "ping_id": 49,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 51
+    },
+    {
+        "employee_id": 13,
+        "location_id": 102,
+        "ping_id": 50,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 91
+    },
+    {
+        "employee_id": 14,
+        "location_id": 105,
+        "ping_id": 51,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 88
+    },
+    {
+        "employee_id": 15,
+        "location_id": 108,
+        "ping_id": 52,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 91
+    },
+    {
+        "employee_id": 16,
+        "location_id": 102,
+        "ping_id": 53,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 82
+    },
+    {
+        "employee_id": 17,
+        "location_id": 103,
+        "ping_id": 54,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 83
+    },
+    {
+        "employee_id": 18,
+        "location_id": 103,
+        "ping_id": 55,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 92
+    },
+    {
+        "employee_id": 19,
+        "location_id": 105,
+        "ping_id": 56,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 81
+    },
+    {
+        "employee_id": 20,
+        "location_id": 107,
+        "ping_id": 57,
+        "ping_time": "2013-04-13 15:00:00",
+        "signal_strength": 75
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "ping_id": 58,
+        "ping_time": "2013-04-13 16:00:00",
+        "signal_strength": 75
+    },
+    {
+        "employee_id": 2,
+        "location_id": 102,
+        "ping_id": 59,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 73
+    },
+    {
+        "employee_id": 5,
+        "location_id": 105,
+        "ping_id": 60,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 63
+    },
+    {
+        "employee_id": 6,
+        "location_id": 101,
+        "ping_id": 61,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 93
+    },
+    {
+        "employee_id": 7,
+        "location_id": 102,
+        "ping_id": 62,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 70
+    },
+    {
+        "employee_id": 8,
+        "location_id": 103,
+        "ping_id": 63,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 79
+    },
+    {
+        "employee_id": 9,
+        "location_id": 116,
+        "ping_id": 64,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 100
+    },
+    {
+        "employee_id": 10,
+        "location_id": 105,
+        "ping_id": 65,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 76
+    },
+    {
+        "employee_id": 11,
+        "location_id": 106,
+        "ping_id": 66,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 93
+    },
+    {
+        "employee_id": 12,
+        "location_id": 102,
+        "ping_id": 67,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 70
+    },
+    {
+        "employee_id": 13,
+        "location_id": 103,
+        "ping_id": 68,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 65
+    },
+    {
+        "employee_id": 14,
+        "location_id": 108,
+        "ping_id": 69,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 80
+    },
+    {
+        "employee_id": 15,
+        "location_id": 105,
+        "ping_id": 70,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 67
+    },
+    {
+        "employee_id": 16,
+        "location_id": 107,
+        "ping_id": 71,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 66
+    },
+    {
+        "employee_id": 17,
+        "location_id": 102,
+        "ping_id": 72,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 86
+    },
+    {
+        "employee_id": 18,
+        "location_id": 103,
+        "ping_id": 73,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 91
+    },
+    {
+        "employee_id": 19,
+        "location_id": 104,
+        "ping_id": 74,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 100
+    },
+    {
+        "employee_id": 20,
+        "location_id": 105,
+        "ping_id": 75,
+        "ping_time": "2013-04-14 09:00:00",
+        "signal_strength": 96
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "ping_id": 76,
+        "ping_time": "2013-04-14 09:55:00",
+        "signal_strength": 56
+    },
+    {
+        "employee_id": 1,
+        "location_id": 104,
+        "ping_id": 77,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 57
+    },
+    {
+        "employee_id": 2,
+        "location_id": 105,
+        "ping_id": 78,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 73
+    },
+    {
+        "employee_id": 5,
+        "location_id": 102,
+        "ping_id": 79,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 58
+    },
+    {
+        "employee_id": 6,
+        "location_id": 104,
+        "ping_id": 80,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 63
+    },
+    {
+        "employee_id": 7,
+        "location_id": 105,
+        "ping_id": 81,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 84
+    },
+    {
+        "employee_id": 8,
+        "location_id": 106,
+        "ping_id": 82,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 82
+    },
+    {
+        "employee_id": 9,
+        "location_id": 102,
+        "ping_id": 83,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 52
+    },
+    {
+        "employee_id": 10,
+        "location_id": 103,
+        "ping_id": 84,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 75
+    },
+    {
+        "employee_id": 11,
+        "location_id": 104,
+        "ping_id": 85,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 54
+    },
+    {
+        "employee_id": 12,
+        "location_id": 105,
+        "ping_id": 86,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 93
+    },
+    {
+        "employee_id": 13,
+        "location_id": 108,
+        "ping_id": 87,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 98
+    },
+    {
+        "employee_id": 14,
+        "location_id": 102,
+        "ping_id": 88,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 97
+    },
+    {
+        "employee_id": 15,
+        "location_id": 103,
+        "ping_id": 89,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 87
+    },
+    {
+        "employee_id": 16,
+        "location_id": 102,
+        "ping_id": 90,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 99
+    },
+    {
+        "employee_id": 17,
+        "location_id": 105,
+        "ping_id": 91,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 56
+    },
+    {
+        "employee_id": 18,
+        "location_id": 112,
+        "ping_id": 92,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 57
+    },
+    {
+        "employee_id": 19,
+        "location_id": 102,
+        "ping_id": 93,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 69
+    },
+    {
+        "employee_id": 20,
+        "location_id": 103,
+        "ping_id": 94,
+        "ping_time": "2013-04-14 12:00:00",
+        "signal_strength": 69
+    },
+    {
+        "employee_id": 1,
+        "location_id": 102,
+        "ping_id": 95,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 61
+    },
+    {
+        "employee_id": 2,
+        "location_id": 104,
+        "ping_id": 96,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 52
+    },
+    {
+        "employee_id": 5,
+        "location_id": 103,
+        "ping_id": 97,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 70
+    },
+    {
+        "employee_id": 6,
+        "location_id": 102,
+        "ping_id": 98,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 78
+    },
+    {
+        "employee_id": 7,
+        "location_id": 103,
+        "ping_id": 99,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 85
+    },
+    {
+        "employee_id": 8,
+        "location_id": 104,
+        "ping_id": 100,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 94
+    },
+    {
+        "employee_id": 9,
+        "location_id": 105,
+        "ping_id": 101,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 95
+    },
+    {
+        "employee_id": 10,
+        "location_id": 108,
+        "ping_id": 102,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 94
+    },
+    {
+        "employee_id": 11,
+        "location_id": 102,
+        "ping_id": 103,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 95
+    },
+    {
+        "employee_id": 12,
+        "location_id": 103,
+        "ping_id": 104,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 64
+    },
+    {
+        "employee_id": 13,
+        "location_id": 108,
+        "ping_id": 105,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 77
+    },
+    {
+        "employee_id": 14,
+        "location_id": 105,
+        "ping_id": 106,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 87
+    },
+    {
+        "employee_id": 15,
+        "location_id": 107,
+        "ping_id": 107,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 67
+    },
+    {
+        "employee_id": 16,
+        "location_id": 102,
+        "ping_id": 108,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 59
+    },
+    {
+        "employee_id": 17,
+        "location_id": 103,
+        "ping_id": 109,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 72
+    },
+    {
+        "employee_id": 18,
+        "location_id": 102,
+        "ping_id": 110,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 75
+    },
+    {
+        "employee_id": 19,
+        "location_id": 105,
+        "ping_id": 111,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 62
+    },
+    {
+        "employee_id": 20,
+        "location_id": 107,
+        "ping_id": 112,
+        "ping_time": "2013-04-14 15:00:00",
+        "signal_strength": 81
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "ping_id": 113,
+        "ping_time": "2013-04-14 15:46:00",
+        "signal_strength": 78
+    },
+    {
+        "employee_id": 1,
+        "location_id": 101,
+        "ping_id": 114,
+        "ping_time": "2013-04-14 18:00:00",
+        "signal_strength": 70
+    },
+    {
+        "employee_id": 2,
+        "location_id": 101,
+        "ping_id": 115,
+        "ping_time": "2013-04-14 19:00:00",
+        "signal_strength": 70
+    },
+    {
+        "employee_id": 3,
+        "location_id": 105,
+        "ping_id": 116,
+        "ping_time": "2013-04-14 19:03:00",
+        "signal_strength": 60
+    },
+    {
+        "employee_id": 2,
+        "location_id": 101,
+        "ping_id": 117,
+        "ping_time": "2013-04-14 19:20:00",
+        "signal_strength": 0
+    },
+    {
+        "employee_id": 3,
+        "location_id": 102,
+        "ping_id": 118,
+        "ping_time": "2013-04-14 20:30:00",
+        "signal_strength": 60
+    },
+    {
+        "employee_id": 4,
+        "location_id": 101,
+        "ping_id": 119,
+        "ping_time": "2013-04-14 20:31:00",
+        "signal_strength": 80
+    },
+    {
+        "employee_id": 4,
+        "location_id": 104,
+        "ping_id": 120,
+        "ping_time": "2013-04-14 20:56:00",
+        "signal_strength": 59
+    },
+    {
+        "employee_id": 2,
+        "location_id": 102,
+        "ping_id": 121,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 65
+    },
+    {
+        "employee_id": 5,
+        "location_id": 105,
+        "ping_id": 122,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 80
+    },
+    {
+        "employee_id": 6,
+        "location_id": 101,
+        "ping_id": 123,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 61
+    },
+    {
+        "employee_id": 7,
+        "location_id": 102,
+        "ping_id": 124,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 96
+    },
+    {
+        "employee_id": 8,
+        "location_id": 103,
+        "ping_id": 125,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 78
+    },
+    {
+        "employee_id": 9,
+        "location_id": 111,
+        "ping_id": 126,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 52
+    },
+    {
+        "employee_id": 10,
+        "location_id": 105,
+        "ping_id": 127,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 82
+    },
+    {
+        "employee_id": 11,
+        "location_id": 106,
+        "ping_id": 128,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 92
+    },
+    {
+        "employee_id": 12,
+        "location_id": 102,
+        "ping_id": 129,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 77
+    },
+    {
+        "employee_id": 13,
+        "location_id": 103,
+        "ping_id": 130,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 72
+    },
+    {
+        "employee_id": 14,
+        "location_id": 107,
+        "ping_id": 131,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 56
+    },
+    {
+        "employee_id": 15,
+        "location_id": 105,
+        "ping_id": 132,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 97
+    },
+    {
+        "employee_id": 16,
+        "location_id": 107,
+        "ping_id": 133,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 92
+    },
+    {
+        "employee_id": 17,
+        "location_id": 102,
+        "ping_id": 134,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 89
+    },
+    {
+        "employee_id": 18,
+        "location_id": 103,
+        "ping_id": 135,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 91
+    },
+    {
+        "employee_id": 19,
+        "location_id": 106,
+        "ping_id": 136,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 81
+    },
+    {
+        "employee_id": 20,
+        "location_id": 105,
+        "ping_id": 137,
+        "ping_time": "2013-04-15 09:00:00",
+        "signal_strength": 60
+    },
+    {
+        "employee_id": 3,
+        "location_id": 115,
+        "ping_id": 138,
+        "ping_time": "2013-04-15 10:58:00",
+        "signal_strength": 69
+    },
+    {
+        "employee_id": 2,
+        "location_id": 104,
+        "ping_id": 139,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 95
+    },
+    {
+        "employee_id": 3,
+        "location_id": 102,
+        "ping_id": 140,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 54
+    },
+    {
+        "employee_id": 5,
+        "location_id": 103,
+        "ping_id": 141,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 92
+    },
+    {
+        "employee_id": 6,
+        "location_id": 104,
+        "ping_id": 142,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 55
+    },
+    {
+        "employee_id": 7,
+        "location_id": 105,
+        "ping_id": 143,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 73
+    },
+    {
+        "employee_id": 8,
+        "location_id": 106,
+        "ping_id": 144,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 50
+    },
+    {
+        "employee_id": 9,
+        "location_id": 102,
+        "ping_id": 145,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 67
+    },
+    {
+        "employee_id": 10,
+        "location_id": 103,
+        "ping_id": 146,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 80
+    },
+    {
+        "employee_id": 11,
+        "location_id": 104,
+        "ping_id": 147,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 50
+    },
+    {
+        "employee_id": 12,
+        "location_id": 105,
+        "ping_id": 148,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 76
+    },
+    {
+        "employee_id": 13,
+        "location_id": 108,
+        "ping_id": 149,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 98
+    },
+    {
+        "employee_id": 14,
+        "location_id": 102,
+        "ping_id": 150,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 66
+    },
+    {
+        "employee_id": 15,
+        "location_id": 103,
+        "ping_id": 151,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 84
+    },
+    {
+        "employee_id": 16,
+        "location_id": 107,
+        "ping_id": 152,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 95
+    },
+    {
+        "employee_id": 17,
+        "location_id": 105,
+        "ping_id": 153,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 50
+    },
+    {
+        "employee_id": 18,
+        "location_id": 111,
+        "ping_id": 154,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 67
+    },
+    {
+        "employee_id": 19,
+        "location_id": 102,
+        "ping_id": 155,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 94
+    },
+    {
+        "employee_id": 20,
+        "location_id": 103,
+        "ping_id": 156,
+        "ping_time": "2013-04-15 12:00:00",
+        "signal_strength": 50
+    },
+    {
+        "employee_id": 3,
+        "location_id": 115,
+        "ping_id": 157,
+        "ping_time": "2013-04-15 13:00:00",
+        "signal_strength": 91
+    },
+    {
+        "employee_id": 2,
+        "location_id": 104,
+        "ping_id": 158,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 58
+    },
+    {
+        "employee_id": 5,
+        "location_id": 103,
+        "ping_id": 159,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 59
+    },
+    {
+        "employee_id": 6,
+        "location_id": 102,
+        "ping_id": 160,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 53
+    },
+    {
+        "employee_id": 7,
+        "location_id": 103,
+        "ping_id": 161,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 92
+    },
+    {
+        "employee_id": 8,
+        "location_id": 104,
+        "ping_id": 162,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 95
+    },
+    {
+        "employee_id": 9,
+        "location_id": 105,
+        "ping_id": 163,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 79
+    },
+    {
+        "employee_id": 10,
+        "location_id": 108,
+        "ping_id": 164,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 90
+    },
+    {
+        "employee_id": 11,
+        "location_id": 102,
+        "ping_id": 165,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 57
+    },
+    {
+        "employee_id": 12,
+        "location_id": 103,
+        "ping_id": 166,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 81
+    },
+    {
+        "employee_id": 13,
+        "location_id": 109,
+        "ping_id": 167,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 90
+    },
+    {
+        "employee_id": 14,
+        "location_id": 105,
+        "ping_id": 168,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 59
+    },
+    {
+        "employee_id": 15,
+        "location_id": 107,
+        "ping_id": 169,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 65
+    },
+    {
+        "employee_id": 16,
+        "location_id": 102,
+        "ping_id": 170,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 95
+    },
+    {
+        "employee_id": 17,
+        "location_id": 103,
+        "ping_id": 171,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 73
+    },
+    {
+        "employee_id": 18,
+        "location_id": 105,
+        "ping_id": 172,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 92
+    },
+    {
+        "employee_id": 19,
+        "location_id": 106,
+        "ping_id": 173,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 64
+    },
+    {
+        "employee_id": 20,
+        "location_id": 107,
+        "ping_id": 174,
+        "ping_time": "2013-04-15 15:00:00",
+        "signal_strength": 80
+    }
+]

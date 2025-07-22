@@ -1,0 +1,95 @@
+body {
+  background: #f5ecd7;
+  font-family: 'Special Elite', cursive, Arial, sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+.case-title {
+  font-family: 'Creepster', cursive;
+  font-size: 2.2em;
+  text-align: center;
+  margin-top: 1em;
+}
+.next-btn, .action-btn {
+  background: #d3cfc7;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7em 2em;
+  font-size: 1.1em;
+  margin: 1em 0.5em 0 0;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 1px 1px 4px #00000022;
+}
+.hidden { display: none; }
+.modal {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background-color: #fdf7e3;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+#game-container {
+  max-width: 700px;
+  margin: 2em auto;
+  background: #fffbe9;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #00000022;
+  padding: 2em 2em 3em 2em;
+}
+.detective-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1em;
+  vertical-align: middle;
+}
+.detective-intro {
+  display: flex;
+  align-items: center;
+  margin: 1.5em 0;
+}
+.sql-console {
+  margin: 1.5em 0;
+}
+.sql-prompt {
+  margin: 1em 0;
+  background: #f5ecd7;
+  border-left: 4px solid #bdb76b;
+  padding: 0.7em 1em;
+  border-radius: 6px;
+}
+input[type="text"], textarea {
+  font-family: 'Special Elite', cursive, Arial, sans-serif;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  width: 90%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#forensic-text {
+  white-space: pre-wrap;   
+  word-wrap: break-word;   
+}
+@media (max-width: 600px) {
+  .modal-content {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+}

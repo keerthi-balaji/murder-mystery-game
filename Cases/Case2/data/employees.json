@@ -1,0 +1,162 @@
+[
+    {
+        "department": "AI R&D",
+        "employee_id": 1,
+        "name": "Elina Rao",
+        "remote": 0,
+        "restricted_access_given": 1,
+        "role": "Lead Researcher"
+    },
+    {
+        "department": "Data Center",
+        "employee_id": 2,
+        "name": "Ava Lin",
+        "remote": 0,
+        "restricted_access_given": 1,
+        "role": "Data Scientist"
+    },
+    {
+        "department": "DevOps",
+        "employee_id": 3,
+        "name": "Jonah Reid",
+        "remote": 0,
+        "restricted_access_given": 1,
+        "role": "Infrastructure Engineer"
+    },
+    {
+        "department": "AI R&D",
+        "employee_id": 4,
+        "name": "Malik Awan",
+        "remote": 1,
+        "restricted_access_given": 0,
+        "role": "ML Engineer"
+    },
+    {
+        "department": "HR",
+        "employee_id": 5,
+        "name": "Nora Chen",
+        "remote": 0,
+        "restricted_access_given": 0,
+        "role": "HR Manager"
+    },
+    {
+        "department": "AI R&D",
+        "employee_id": 6,
+        "name": "Liam Patel",
+        "remote": 0,
+        "restricted_access_given": 1,
+        "role": "Engineer"
+    },
+    {
+        "department": "Data Center",
+        "employee_id": 7,
+        "name": "Sophia Kim",
+        "remote": 1,
+        "restricted_access_given": 0,
+        "role": "Manager"
+    },
+    {
+        "department": "AI R&D",
+        "employee_id": 8,
+        "name": "Noah Garcia",
+        "remote": 0,
+        "restricted_access_given": 1,
+        "role": "Researcher"
+    },
+    {
+        "department": "Security",
+        "employee_id": 9,
+        "name": "Mia Zhang",
+        "remote": 0,
+        "restricted_access_given": 0,
+        "role": "Researcher"
+    },
+    {
+        "department": "AI R&D",
+        "employee_id": 10,
+        "name": "Ethan Lee",
+        "remote": 0,
+        "restricted_access_given": 0,
+        "role": "Data Analyst"
+    },
+    {
+        "department": "AI R&D",
+        "employee_id": 11,
+        "name": "Olivia Hernandez",
+        "remote": 0,
+        "restricted_access_given": 1,
+        "role": "Engineer"
+    },
+    {
+        "department": "HR",
+        "employee_id": 12,
+        "name": "Aiden Murphy",
+        "remote": 0,
+        "restricted_access_given": 0,
+        "role": "Support"
+    },
+    {
+        "department": "DevOps",
+        "employee_id": 13,
+        "name": "Emma Wright",
+        "remote": 1,
+        "restricted_access_given": 0,
+        "role": "Engineer"
+    },
+    {
+        "department": "DevOps",
+        "employee_id": 14,
+        "name": "Lucas Baker",
+        "remote": 0,
+        "restricted_access_given": 0,
+        "role": "Data Analyst"
+    },
+    {
+        "department": "Security",
+        "employee_id": 15,
+        "name": "Isabella Green",
+        "remote": 1,
+        "restricted_access_given": 0,
+        "role": "Engineer"
+    },
+    {
+        "department": "AI R&D",
+        "employee_id": 16,
+        "name": "Mason Carter",
+        "remote": 1,
+        "restricted_access_given": 0,
+        "role": "Engineer"
+    },
+    {
+        "department": "DevOps",
+        "employee_id": 17,
+        "name": "Emily Phillips",
+        "remote": 1,
+        "restricted_access_given": 0,
+        "role": "Support"
+    },
+    {
+        "department": "HR",
+        "employee_id": 18,
+        "name": "Logan Torres",
+        "remote": 0,
+        "restricted_access_given": 0,
+        "role": "Manager"
+    },
+    {
+        "department": "AI R&D",
+        "employee_id": 19,
+        "name": "Avery Nelson",
+        "remote": 0,
+        "restricted_access_given": 1,
+        "role": "Engineer"
+    },
+    {
+        "department": "Security",
+        "employee_id": 20,
+        "name": "Jacob Rivera",
+        "remote": 1,
+        "restricted_access_given": 0,
+        "role": "Support"
+    }
+]
