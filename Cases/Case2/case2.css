@@ -4,6 +4,7 @@ body {
   color: #222;
   margin: 0;
   padding: 0;
+  line-height: 1.5;
 }
 .case-title {
   font-family: 'Creepster', cursive;
@@ -11,7 +12,7 @@ body {
   text-align: center;
   margin-top: 1em;
 }
-.next-btn, .action-btn {
+.next-btn, .action-btn, .exit-btn, .back-btn {
   background: #d3cfc7;
   border: none;
   border-radius: 6px;
@@ -47,10 +48,10 @@ body {
   padding: 2em 2em 3em 2em;
 }
 .detective-img {
-  width: 80px;
+  width: 90px;
   height: 80px;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   margin-right: 1em;
   vertical-align: middle;
 }
@@ -92,4 +93,8 @@ input[type="text"], textarea {
     width: 90%;
     font-size: 0.9rem;
   }
+}
+
+#screen-1 {
+  line-height: 1.5;
 }

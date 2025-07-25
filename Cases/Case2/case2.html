@@ -14,14 +14,14 @@
     <section id="screen-1" class="game-screen">
       <h1 class="case-title">Case 2: The Silence in Server Room 6</h1>
       <p class="case-details">
-        The IT department’s most secure server room has gone silent. A critical breach is suspected. 
-        You, as the assistant to Detective Priya Sen, must help her investigate the digital footprints and uncover the truth.
+        A sudden death halts operations at Neuronexus, a tech giant at the forefront of AI innovation. The victim was found inside a restricted server room under suspicious circumstances. A critical breach is suspected. <br><br>
+        You, as the assistant to Detective Priya Sen, must help her investigate the digital footprints and uncover the truth.<br><br>
       </p>
       <p class="instructions">
-        <strong>Instructions:</strong> Use your database and logic skills to help Detective Sen solve the case. Click <b>Next</b> to begin.
+        <strong>Instructions:</strong> Use your database (SQL) and logic skills to help Detective Sen solve the case. Click <b>Next</b> to begin.
       </p>
       <div class="detective-intro">
-        <img src="detective.png" alt="Detective Priya Sen" class="detective-img" />
+        <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
         <p><b>Detective Priya Sen:</b> "Welcome, partner. Ready to dive into the data?"</p>
       </div>
       <button class="exit-btn" onclick="exitToHome()">Exit</button>
@@ -31,9 +31,9 @@
     <!-- Screen 2: Forensic report -->
     <section id="screen-2" class="game-screen hidden">      
       <button class="back-btn" onclick="goBack()">Back</button>
-      <p><b>Detective Sen:</b> "Before we start, review the forensic report for clues. Click the button below."</p>
-      <button class="action-btn" onclick="openForensicReport()">Open Forensic Report</button>
+      <p><br><br><b>Detective Sen:</b> "Before we start, review the forensic report for clues. Click the button below to open the report." <br><br></p>
       <button class="exit-btn" onclick="exitToHome()">Exit</button>
+      <button class="action-btn" onclick="openForensicReport()">Open Forensic Report</button>      
       <button id="next-2" class="next-btn" disabled>Next</button>
     </section>
 

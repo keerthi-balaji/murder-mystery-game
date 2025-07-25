@@ -39,7 +39,7 @@ const prompts = [
     validate: sql => /select\s+e\.name\s+from\s+access_logs\s+a\s+join\s+employees\s+e\s+on\s+a\.employee_id\s*=\s*e\.employee_id\s+where\s+a\.location_id\s*=\s*6/i.test(sql.replace(/\s+/g,' ').trim()),
     result: "Kiran Rao, Felix Duval, Dr. Mara Vellum"
   }
-  // Add more prompts as needed
+  // Add more prompts here
 ];
 
 let currentPrompt = 0;
@@ -70,7 +70,7 @@ document.getElementById('run-sql').onclick = () => {
 document.getElementById('next-3').onclick = () => showScreen('screen-4');
 
 // --- Final Answer ---
-const correctAnswer = "Kiran Rao"; // Example
+const correctAnswer = "Kiran Rao"; 
 document.getElementById('submit-answer').onclick = () => {
   const ans = document.getElementById('final-answer').value.trim();
   if (ans.toLowerCase() === correctAnswer.toLowerCase()) {
