@@ -1,0 +1,59 @@
+The "Case 2" database models a workplace environment involving employees, digital communication, access patterns, schedules, and technical logs. It is designed to support a data-driven investigation into suspicious activity at a tech company by tracking interactions, locations, network behavior, and server activity. The schema facilitates forensic querying and investigative storytelling.
+
+<img src="/Images/class diagram.png" alt="ER Diagram" style="max-width:100%; border:1px solid #444; margin:10px 0;">
+
+🧑‍💼 **employees table:** Stores personal and organizational details of each employee.
+=> employee_id (PK) – Unique identifier for each employee
+=> name – Full name of the employee
+=> role – Job title or designation
+=> department – Department within the organization
+=> remote – Boolean indicating if the employee is remote
+
+
+📍 **locations table:** Represents physical areas or rooms within the company premises.
+=> location_id (PK) – Unique ID for each location
+=> name – Descriptive name of the location 
+=> is_restricted – Boolean to indicate if access is restricted
+
+
+⏰ **schedules table:** Stores assigned work schedules and locations for employees.
+=> schedule_id (PK) – Unique ID for each schedule entry
+=> start_time – Shift or task start time
+=> end_time – Shift or task end time
+=> employee_id (FK) – Assigned employee
+=> location_id (FK) – Assigned location
+
+
+🚪 **access_logs table:** Tracks employee movement via entry/exit log data.
+=> log_id (PK) – Unique log entry ID
+=> timestamp – Date and time of access
+=> employee_id (FK) – Person who accessed the location
+=> location_id (FK) – Location being accessed
+
+
+🌐 **wifi_logs table:** Captures device pings on the company Wi-Fi network.
+=> ping_id (PK) – Unique ping event ID
+=> ping_time – Timestamp of ping
+=> signal_strength – Signal quality detected
+=> employee_id (FK) – Associated employee/device
+=> location_id (FK) – Detected location
+
+
+💬 **messages table:** Stores internal messages between employees.
+=> message_id (PK) – Unique message ID
+=> message_text – Content of the message
+=> message_time – Timestamp of when it was sent
+=> is_encrypted – Boolean indicating encryption
+=> recovered – Boolean indicating whether the message was recovered
+=> sender_id (FK) – Sender employee ID
+=> receiver_id (FK) – Receiver employee ID
+=> employee_id (FK) – Employee account used to send the message
+
+
+🖥️ **server_commands table:** Logs commands executed on sensitive servers.
+=> command_id (PK) – Unique command entry ID
+=> run_time – Time the command was executed
+=> command_text – Actual command issued
+=> employee_id (FK) – Who ran the command
+
+<img src="/Images/Case 2 - erd_diagram.png" alt="ER Diagram" style="max-width:100%; border:1px solid #444; margin:10px 0;">

@@ -33,7 +33,7 @@
       <button class="back-btn" onclick="goBack()">Back</button>
       <div class="detective-dialogue">
         <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
-        <p><br><br><b>Detective Sen:</b> "Before we start, review the forensic report for clues. Click the button below to open the report." <br><br></p>
+        <p><br><br><b>Detective Sen:</b> "Before we start, review the forensic report for clues. Click the button below to open the report." </p>
       </div>
       <button class="exit-btn" onclick="exitToHome()">Exit</button>
       <button class="action-btn" onclick="openForensicReport()">Open Forensic Report</button>      
@@ -55,14 +55,21 @@
   <h2>Database Structure & Instructions</h2>
   <div class="detective-dialogue">        
     <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
-    <p><b>Detective Sen:</b> "Here's the database you'll be working with. Review the tables, their relationships, and the ER diagram before you begin your investigation."
+    <p><b>Detective Sen:</b> "Here's the database you'll be working with. Review the tables, their relationships, and the ER diagram before you begin your investigation."<br>
     </p>
-  </div>
-  <div class="db-structure">
-    <img src="/Images/class diagram.png" alt="Database ER Diagram" class="erd-img" style="max-width:100%;margin:1em 0;">
-    <button class="action-btn" onclick="openDatabaseInfo()">View Table Details</button>
-  </div>
+    </div>
+    <div class="db-structure">
+      <img src="/Images/class diagram.png" alt="Database ER Diagram" class="erd-img" style="max-width:100%;margin:1em 0;">
+    </div>
+    <div class="detective-dialogue"> 
+      <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+      <p><b>Detective Sen: </b>"This database captures digital activity and movement within a tech company to support the investigative gameplay. You will analyze employee schedules, messages, server commands, Wi-Fi logs, and access patterns to uncover the truth behind a suspicious incident." </p>
+    </div>
+
+    <button class="action-btn" onclick="openDatabaseInfo()">Click to View Table Details</button>
+
   <div class="db-instructions">
+    <br>
     <ul>
       <li>You can use <b>SELECT</b>, <b>JOIN</b>, <b>WHERE</b>, and other standard SQL commands.</li>
       <li>Refer to the ER diagram and table details as needed.</li>

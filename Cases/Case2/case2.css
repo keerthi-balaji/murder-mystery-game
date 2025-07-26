@@ -85,9 +85,10 @@ input[type="text"], textarea {
   display: none !important;
 }
 
-#forensic-text {
+#forensic-text, #dbinfo-text {
   white-space: pre-wrap;   
-  word-wrap: break-word;   
+  word-wrap: break-word; 
+  text-align: justify;  
 }
 @media (max-width: 600px) {
   .modal-content {
@@ -99,3 +100,5 @@ input[type="text"], textarea {
 #screen-1 {
   line-height: 1.5;
 }
+
+

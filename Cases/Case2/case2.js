@@ -121,6 +121,7 @@ function openDatabaseInfo() {
       const htmlFormatted = txt.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
       document.getElementById('dbinfo-text').innerHTML = htmlFormatted;
     });
+    
 }
 
 function closeDatabaseInfo() {
