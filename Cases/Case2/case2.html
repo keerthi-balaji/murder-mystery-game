@@ -31,7 +31,10 @@
     <!-- Screen 2: Forensic report -->
     <section id="screen-2" class="game-screen hidden">      
       <button class="back-btn" onclick="goBack()">Back</button>
-      <p><br><br><b>Detective Sen:</b> "Before we start, review the forensic report for clues. Click the button below to open the report." <br><br></p>
+      <div class="detective-dialogue">
+        <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+        <p><br><br><b>Detective Sen:</b> "Before we start, review the forensic report for clues. Click the button below to open the report." <br><br></p>
+      </div>
       <button class="exit-btn" onclick="exitToHome()">Exit</button>
       <button class="action-btn" onclick="openForensicReport()">Open Forensic Report</button>      
       <button id="next-2" class="next-btn" disabled>Next</button>
@@ -46,9 +49,33 @@
       </div>
     </div>
 
+    <!-- Screen 3: Database Structure & Instructions -->
+<section id="screen-3" class="game-screen hidden">
+  <button class="back-btn" onclick="goBack()">Back</button>
+  <h2>Database Structure & Instructions</h2>
+  <div class="detective-dialogue">        
+    <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+    <p><b>Detective Sen:</b> "Here's the database you'll be working with. Review the tables, their relationships, and the ER diagram before you begin your investigation."
+    </p>
+  </div>
+  <div class="db-structure">
+    <img src="/Images/class diagram.png" alt="Database ER Diagram" class="erd-img" style="max-width:100%;margin:1em 0;">
+    <button class="action-btn" onclick="openDatabaseInfo()">View Table Details</button>
+  </div>
+  <div class="db-instructions">
+    <ul>
+      <li>You can use <b>SELECT</b>, <b>JOIN</b>, <b>WHERE</b>, and other standard SQL commands.</li>
+      <li>Refer to the ER diagram and table details as needed.</li>
+      <li>Click <b>Next</b> when you are ready to start the investigation.</li>
+    </ul>
+  </div>
+  <button class="exit-btn" onclick="exitToHome()">Exit</button>
+  <button id="next-3" class="next-btn">Next</button>
+  
+</section>
 
-    <!-- Screen 3: SQL Investigation -->
-    <section id="screen-3" class="game-screen hidden">
+    <!-- Screen 4: SQL Investigation -->
+    <section id="screen-4" class="game-screen hidden">
       <button class="back-btn" onclick="goBack()">Back</button>
       <button class="action-btn" onclick="openForensicReport()">View Forensic Report </button>
       <button class="action-btn" onclick="openDatabaseInfo()">View Database Info</button>
@@ -74,8 +101,8 @@
     </div>
 
 
-    <!-- Screen 4: Final Answer -->
-    <section id="screen-4" class="game-screen hidden">
+    <!-- Screen 5: Final Answer -->
+    <section id="screen-5" class="game-screen hidden">
       <button class="action-btn" onclick="openForensicReport()">View Forensic Report </button>
       <p><b>Detective Sen:</b> "Who is responsible for the breach? Enter your answer below."</p>
       <input type="text" id="final-answer" placeholder="Enter suspect's name" />

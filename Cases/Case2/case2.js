@@ -23,10 +23,11 @@ document.getElementById('close-forensic').onclick = () => {
   document.getElementById('forensic-modal').classList.add('hidden');
 };
 
-// Next to screen 3
+// After forensic report, go to DB structure screen
 document.getElementById('next-2').onclick = () => showScreen('screen-3');
 
-
+// From DB structure to SQL investigation
+document.getElementById('next-3').onclick = () => showScreen('screen-4');
 // --- SQL Investigation ---
 const prompts = [
   {
