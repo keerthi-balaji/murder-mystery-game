@@ -95,7 +95,7 @@ const prompts = [
   {
     prompt: "Interesting! Malik Awan is our new suspect. He was in the vicinity of Server Room 6 at the time of the murder and he is a remote employee with no restricted access. But, did he have motive? Let's check messages he has exchanged with other employees.",
     patterns: [ 
-      /select\s+\*\s+from\s+messages\s+where\s+(sender_id\s*=\s*4\s+or\s+receiver_id\s*=\s*5|receiver_id\s*=\s*4\s+or\s+sender_id\s*=\s*4)/i,
+      /select\s+\*\s+from\s+messages\s+where\s+(sender_id\s*=\s*4\s+or\s+receiver_id\s*=\s*4|receiver_id\s*=\s*4\s+or\s+sender_id\s*=\s*4)/i,
       /select\s+\*\s+from\s+messages\s+where\s+(sender_id|receiver_id)\s+in\s*\(\s*4\s*\)/i
     ]
   }
@@ -115,6 +115,7 @@ showPrompt();
 document.getElementById('run-sql').onclick = () => {
   const sql = document.getElementById('sql-query').value.trim();
   const resultContainer = document.getElementById('sql-result');
+  document.getElementById('sql-result').classList.remove('hidden');
   const promptContainer = document.getElementById('sql-prompts');
 
   try {
@@ -145,8 +146,7 @@ document.getElementById('run-sql').onclick = () => {
         document.getElementById('sql-query').value = '';
       } else {
         document.getElementById('next-4').disabled = false;
-        document.getElementById('sql-query').disabled = true;
-        document.getElementById('run-sql').disabled = true;
+        document.getElementById('sql-input-fields').hidden = true;
         promptContainer.innerHTML = `<div class="sql-prompt"><div class="detective-dialogue"> 
           <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
           <p><b>Detective Sen: What do you think? Who could it be? Click Next to continue.</b></p>`;

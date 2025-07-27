@@ -88,10 +88,12 @@
       <button class="action-btn" onclick="openDatabaseInfo()">View Database Info</button>
       <div id="sql-prompts"></div>
       <div class="sql-console">
-        <label for="sql-query">SQL Query:</label>
-        <textarea id="sql-query" rows="3" cols="60"></textarea>
-        <button id="run-sql" class="action-btn">Run Query</button>
-        <pre id="sql-result"></pre>
+        <div id="sql-input-fields">
+          <label for="sql-query">SQL Query:</label>
+          <textarea id="sql-query" rows="3" cols="60"></textarea>
+          <button id="run-sql" class="action-btn">Run Query</button>
+        </div>
+        <div id="sql-result" class="sql-result-box hidden"></div>
       </div>
       <button class="exit-btn" onclick="exitToHome()">Exit</button>
       <button id="next-4" class="next-btn" disabled>Next</button>
