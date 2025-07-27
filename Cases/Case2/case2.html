@@ -109,17 +109,40 @@
     </div>
 
 
-    <!-- Screen 5: Final Answer -->
-    <section id="screen-5" class="game-screen hidden">
-      <button class="action-btn" onclick="openForensicReport()">View Forensic Report </button>
-      <p><b>Detective Sen:</b> "Who is responsible for the breach? Enter your answer below."</p>
-      <input type="text" id="final-answer" placeholder="Enter suspect's name" />
-      <button class="back-btn" onclick="goBack()">Back</button>
-      <button class="exit-btn" onclick="exitToHome()">Exit</button>
-      <button id="submit-answer" class="action-btn">Submit</button>
-      <div id="answer-feedback"></div>
-      <button id="finish-case" class="next-btn hidden">Close Case</button>
-    </section>
+<!-- Screen 5: Final Answer -->
+<section id="screen-5" class="game-screen hidden">
+  <div class="detective-dialogue"> 
+    <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+    <p><b>Detective Sen:</b> "Who do you accuse of murder?"</p>
+  </div>
+  <select id="final-suspect-answer">
+    <option value="">Select a suspect</option>
+    <option value="Ava Lin">Ava Lin</option>
+    <option value="Jonah Reid">Jonah Reid</option>
+    <option value="Malik Awan">Malik Awan</option>
+  </select>
+
+  <div class="detective-dialogue"> 
+    <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+    <p><b>Detective Sen:</b> "Why do you think they did it?"</p>
+  </div>
+  <select id="final-motive-answer">
+    <option value="">Select a motive</option>
+    <option value="promotion_jealousy">They were robbed out of a promotion due to Elina's HR Report.</option>
+    <option value="accident_coverup">They were covering up an office romance.</option>
+    <option value="ai_misuse">They were covering up unauthorized AI training on company servers</option>
+    <option value="security_failure">They were acting out of romantic jealousy.</option>    
+  </select>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+  <button class="exit-btn" onclick="exitToHome()">Exit</button>
+  <button id="submit-answer" class="action-btn hidden">Submit</button>
+
+  <div id="answer-feedback"></div>
+  <button id="finish-case" class="next-btn hidden">Close Case</button>
+</section>
+
+
 
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js" defer></script>

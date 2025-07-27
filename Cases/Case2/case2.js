@@ -161,20 +161,66 @@ document.getElementById('run-sql').onclick = () => {
 };
 
 
+// --- Final Answer Logic ---
 document.getElementById('next-4').onclick = () => showScreen('screen-5');
 
-// --- Final Answer ---
-const correctAnswer = "Kiran Rao"; 
-document.getElementById('submit-answer').onclick = () => {
-  const ans = document.getElementById('final-answer').value.trim();
-  if (ans.toLowerCase() === correctAnswer.toLowerCase()) {
-    document.getElementById('answer-feedback').innerHTML = "<span style='color:green'><b>Correct! Case solved.</b></span>";
-    document.getElementById('finish-case').classList.remove('hidden');
+const correctSuspect = "Malik Awan";
+const correctMotiveValue = "ai_misuse";
+
+// Get dropdown elements
+const suspectSelect = document.getElementById('final-suspect-answer');
+const motiveSelect = document.getElementById('final-motive-answer');
+const submitBtn = document.getElementById('submit-answer');
+const feedback = document.getElementById('answer-feedback');
+const finishBtn = document.getElementById('finish-case');
+
+// Enable submit only when both are selected
+function checkDropdowns() {
+  if (suspectSelect.value && motiveSelect.value) {
+    submitBtn.classList.remove('hidden');
   } else {
-    document.getElementById('answer-feedback').innerHTML = "<span style='color:red'><b>Incorrect. Try again.</b></span>";
+    submitBtn.classList.add('hidden');
+  }
+}
+suspectSelect.addEventListener('change', checkDropdowns);
+motiveSelect.addEventListener('change', checkDropdowns);
+
+// Submission handler
+submitBtn.onclick = () => {
+  const suspectAns = suspectSelect.value;
+  const motiveAns = motiveSelect.value;
+
+  const isCorrect = suspectAns === correctSuspect && motiveAns === correctMotiveValue;
+
+  if (isCorrect) {
+    feedback.innerHTML = `
+      <div>
+        <div class="detective-dialogue"> 
+          <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+          <p><b>Detective Sen: ✅ Congratulations! Case Solved.</b><br><br>
+        </p>
+        </div>
+        <div class="detective-dialogue">
+        <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+          <p><b>Detective Sen:</b> Malik Awan, a remote ML engineer, was secretly using the company’s compute infrastructure to train and sell AI models for personal gain. Elina, the company’s auditor, discovered the activity during a routine check and was preparing to report it. Fearing exposure, Malik acted quickly. </p></div>
+        <div class="detective-dialogue">
+          <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+          <p><b>Detective Sen:</b> Malik Awan cloned Ava Lin’s access badge and used it to gain unauthorized entry into Server Room 6 on the evening of April 14th. By exploiting his remote privileges, he bypassed surveillance logs to conceal his identity, making it appear as though Ava had accessed the room.</p></div>
+        <div class="detective-dialogue">
+          <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+          <p><b>Detective Sen:</b> Inside, Malik disabled critical safety protocols, including grounding protections and circuit fault overrides, then tampered with the server rack’s internal grounding conduit to deliver a high-voltage discharge. The scorched cable fragment and ajar tool panel confirmed deliberate sabotage. Later that evening, Dr. Elina Rao entered the server room alone for a scheduled diagnostic scan. As she interacted with Terminal A12, she unknowingly touched an electrified surface—likely the metal keyboard edge—completing a circuit that electrocuted her instantly.</p></div>
+        <div class="detective-dialogue">
+          <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+          <p><b>Detective Sen:</b> Thanks to your investigation, justice is served!</p></div>
+      </div>`;
+    finishBtn.classList.remove('hidden');
+  } else {
+    feedback.innerHTML = `<span style="color:red"><b>❌ Not quite right. Try again!</b></span>`;
   }
 };
-document.getElementById('finish-case').onclick = () => window.location.href = "../../index.html";
+
+finishBtn.onclick = () => window.location.href = "../../index.html";
+
 
 // Navigation stack to track screen history
 const screenHistory = [];
