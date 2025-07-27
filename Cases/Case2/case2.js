@@ -44,22 +44,71 @@ document.getElementById('next-3').onclick = async () => {
 // --- SQL Investigation ---
 const prompts = [
   {
-    prompt: "Check how many people accessed Server Room 6 (location_id = 6) in access_logs.",
-    validate: sql => /select\s+count\(\*\)\s+from\s+access_logs\s+where\s+location_id\s*=\s*6/i.test(sql.trim()),
-    result: "3 people accessed Server Room 6."
+    prompt: "Use the SQL console to investigate the database. Start by checking <b>access_logs</b> for who accessed Server Room 6 at the time of the murder to get a list of suspects.",
+    patterns: [
+      /select\s+\*\s+from\s+access_logs\s+where\s+(location_id\s*=\s*101\s+and\s+timestamp\s+like\s+['"]2013-04-14(?:%| 1[9-9]:00:00| 2[0-1]:00:00)['"]|timestamp\s+like\s+['"]2013-04-14(?:%| 1[9-9]:00:00| 2[0-1]:00:00)['"]\s+and\s+location_id\s*=\s*101)/i,
+      /select\s+\*\s+from\s+access_logs\s+where\s+(location_id\s*=\s*101\s+and\s+timestamp\s+between\s+['"]2013-04-14 19:00:00['"]\s+and\s+['"]2013-04-14 21:00:00['"]|timestamp\s+between\s+['"]2013-04-14 19:00:00['"]\s+and\s+['"]2013-04-14 21:00:00['"]\s+and\s+location_id\s*=\s*101)/i
+    ]
   },
   {
-    prompt: "List the names of employees who accessed Server Room 6.",
-    validate: sql => /select\s+e\.name\s+from\s+access_logs\s+a\s+join\s+employees\s+e\s+on\s+a\.employee_id\s*=\s*e\.employee_id\s+where\s+a\.location_id\s*=\s*6/i.test(sql.replace(/\s+/g,' ').trim()),
-    result: "Kiran Rao, Felix Duval, Dr. Mara Vellum"
+    prompt: "Now that we have a list of suspects (employee IDs), let's check the details of these employees.",
+    patterns: [
+      /select\s+\*\s+from\s+employees\s+where\s+employee_id\s+in\s*\(\s*(?:1|2|3|999)\s*(?:,\s*(?:1|2|3|999)\s*){1,3}\)/i,
+      /select\s+\*\s+from\s+employees\s+where\s+employee_id\s*=\s*(?:1|2|3|999)(?:\s+or\s+employee_id\s*=\s*(?:1|2|3|999)){1,3}/i
+    ]
+  },
+  {
+    prompt: "That's interesting. There's no employee with ID number '999'. But Ava Lin and Jonah Reid were both in Server Room 6 at the time of murder. They both had opportunity but did they have motive? Let's check their message logs to see if there's any suspicious activity.",
+    patterns: [
+      /select\s+\*\s+from\s+messages\s+where\s+(sender_id|receiver_id)\s+in\s*\(.*(employee_id|1|2|3).*?\)/i,
+      /select\s+\*\s+from\s+messages\s+where\s+(sender_id|receiver_id)\s*=\s*(1|2|3|employee_id)(\s+or\s+\1\s*=\s*(1|2|3|employee_id)){1,3}/i
+    ]
+  },
+  {
+    prompt: "See anything more interesting?? (Hint: Pay close attention to hostile messages from and to Ava Lin!)",
+    patterns: [
+      /select\s+\*\s+from\s+messages\s+where\s+(sender_id\s*=\s*2\s+or\s+receiver_id\s*=\s*2|receiver_id\s*=\s*2\s+or\s+sender_id\s*=\s*2)/i,
+      /select\s+\*\s+from\s+messages\s+where\s+(sender_id|receiver_id)\s+in\s*\(\s*2\s*\)/i
+    ]
+  },
+  {
+    prompt: "Very interesting! Looks like both Ava Lin and Jonah Reid have motive for murder. But we need more evidence to confirm. Let's check if any of the employees ran unusual server commands at the time of murder.",
+    patterns: [
+      /select\s+\*\s+from\s+server_commands\s+where\s+(run_time\s+like\s+['"]2013-04-14(?:%| 1[9-9]:00:00| 2[0-1]:00:00)['"])/i,
+      /select\s+\*\s+from\s+server_commands\s+where\s+(run_time\s+between\s+['"]2013-04-14 19:00:00['"]\s+and\s+['"]2013-04-14 21:00:00['"])/i
+    ]
+  },
+  {
+    prompt: "Fascinating! Excluding the victim only Ava Lin ran commands using their own access. But, there's a suspicious command ran at 20:25 and again there's no employee with ID number '999'. It looks like someone cloned someone's access card and used that to gain access. But it could be anyone! Let's check everyone's movements by checking their wifi logs within the estimated time of death.",
+    patterns: [
+      /select\s+\*\s+from\s+wifi_logs\s+where\s+ping_time\s+between\s+['"]2013-04-14 19:00:00['"]\s+and\s+['"]2013-04-14 21:00:00['"]/i,
+    /select\s+\*\s+from\s+wifi_logs\s+where\s+ping_time\s+like\s+['"]2013-04-14(?:%| 1[9-9]:00:00| 2[0-1]:00:00)['"]/i
+    ]
+  },
+  {
+    prompt: "That's strange. Looks like Ava Lin and someone with employee ID number 4 were the only ones who were in the vicinity of Server Room 6 during the time window. We might have a new suspect, but we don't know who that is. Let's check the their employee details to see if we can find out who they are.",
+    patterns: [
+      /select\s+\*\s+from\s+employees\s+where\s+employee_id\s*=\s*4/i,
+      /select\s+\*\s+from\s+employees\s+where\s+employee_id\s+in\s*\(\s*4\s*\)/i
+    ]
+  },
+  {
+    prompt: "Interesting! Malik Awan is our new suspect. He was in the vicinity of Server Room 6 at the time of the murder and he is a remote employee with no restricted access. But, did he have motive? Let's check messages he has exchanged with other employees.",
+    patterns: [ 
+      /select\s+\*\s+from\s+messages\s+where\s+(sender_id\s*=\s*4\s+or\s+receiver_id\s*=\s*5|receiver_id\s*=\s*4\s+or\s+sender_id\s*=\s*4)/i,
+      /select\s+\*\s+from\s+messages\s+where\s+(sender_id|receiver_id)\s+in\s*\(\s*4\s*\)/i
+    ]
   }
-  // Add more prompts here
+  
 ];
 
 let currentPrompt = 0;
 function showPrompt() {
   const p = prompts[currentPrompt];
-  document.getElementById('sql-prompts').innerHTML = `<div class="sql-prompt"><b>Task:</b> ${p.prompt}</div>`;
+  document.getElementById('sql-prompts').innerHTML = `<div class="sql-prompt"><div class="detective-dialogue"> 
+          <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+          <p><b>Detective Sen: </b></p>
+        </div> ${p.prompt}</div>`;
 }
 showPrompt();
 
@@ -86,9 +135,9 @@ document.getElementById('run-sql').onclick = () => {
 
     // Check correctness
     const prompt = prompts[currentPrompt];
-    if (prompt.validate(sql)) {
+    if (validateAny(sql, prompt.patterns)) {
       // Show predefined result
-      promptContainer.innerHTML += `<p style="color:green"><b>✅ Correct query!</b> ${prompt.result}</p>`;
+     // promptContainer.innerHTML += `<p style="color:green"><b>✅ Correct query!</b> ${prompt.result}</p>`;
       currentPrompt++;
 
       if (currentPrompt < prompts.length) {
@@ -96,7 +145,11 @@ document.getElementById('run-sql').onclick = () => {
         document.getElementById('sql-query').value = '';
       } else {
         document.getElementById('next-4').disabled = false;
-        promptContainer.innerHTML = "<b>All tasks complete! Click Next to continue.</b>";
+        document.getElementById('sql-query').disabled = true;
+        document.getElementById('run-sql').disabled = true;
+        promptContainer.innerHTML = `<div class="sql-prompt"><div class="detective-dialogue"> 
+          <img src="/Images/detective.png" alt="Detective Priya Sen" class="detective-img" />
+          <p><b>Detective Sen: What do you think? Who could it be? Click Next to continue.</b></p>`;
       }
     } else {
       promptContainer.innerHTML += `<p style="color:orange"><b>⚠️ Query ran, but didn’t match expected pattern.</b> Keep exploring!</p>`;
@@ -168,4 +221,7 @@ function closeDatabaseInfo() {
   document.getElementById('dbinfo-modal').classList.add('hidden');
 }
 
-
+function validateAny(sql, patterns) {
+  const cleaned = sql.replace(/\s+/g, ' ').trim();
+  return patterns.some(pattern => pattern.test(cleaned));
+}

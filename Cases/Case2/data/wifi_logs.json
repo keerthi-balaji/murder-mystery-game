@@ -820,7 +820,7 @@
     },
     {
         "employee_id": 3,
-        "location_id": 102,
+        "location_id": 105,
         "ping_id": 118,
         "ping_time": "2013-04-14 20:30:00",
         "signal_strength": 60

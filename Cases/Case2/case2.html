@@ -86,18 +86,17 @@
       <button class="back-btn" onclick="goBack()">Back</button>
       <button class="action-btn" onclick="openForensicReport()">View Forensic Report </button>
       <button class="action-btn" onclick="openDatabaseInfo()">View Database Info</button>
-
-      <p><b>Detective Sen:</b> "Use the SQL console to investigate the database. Start by checking <b>access_logs</b> for who accessed Server Room 6."</p>
+      <div id="sql-prompts"></div>
       <div class="sql-console">
         <label for="sql-query">SQL Query:</label>
         <textarea id="sql-query" rows="3" cols="60"></textarea>
         <button id="run-sql" class="action-btn">Run Query</button>
         <pre id="sql-result"></pre>
       </div>
-      <div id="sql-prompts"></div>
-            <button class="exit-btn" onclick="exitToHome()">Exit</button>
+      <button class="exit-btn" onclick="exitToHome()">Exit</button>
       <button id="next-4" class="next-btn" disabled>Next</button>
     </section>
+    
     <!-- Database Info Modal -->
     <div id="dbinfo-modal" class="modal hidden">
     <div class="modal-content">
