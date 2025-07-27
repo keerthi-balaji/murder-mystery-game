@@ -64,61 +64,46 @@ function showPrompt() {
 showPrompt();
 
 document.getElementById('run-sql').onclick = () => {
-  const sql = document.getElementById('sql-query').value;
-  const p = prompts[currentPrompt];
-  if (p.validate(sql)) {
-    document.getElementById('sql-result').textContent = p.result;
-    currentPrompt++;
-    if (currentPrompt < prompts.length) {
-      showPrompt();
-      document.getElementById('sql-query').value = '';
-    } else {
-      document.getElementById('next-4').disabled = false;
-      document.getElementById('sql-prompts').innerHTML = "<b>All tasks complete! Click Next to continue.</b>";
-    }
-  } else {
-    document.getElementById('sql-result').textContent = "Incorrect or incomplete SQL. Try again!";
-  }
-};
-
-document.getElementById('run-sql').onclick = () => {
   const sql = document.getElementById('sql-query').value.trim();
+  const resultContainer = document.getElementById('sql-result');
+  const promptContainer = document.getElementById('sql-prompts');
 
   try {
-    const result = db.exec(sql);
+    const results = db.exec(sql);
 
-    if (result.length === 0) {
-      document.getElementById('sql-result').textContent = "Query executed but returned no results.";
+    // Display results
+    if (results.length === 0) {
+      resultContainer.textContent = "Query executed but returned no results.";
     } else {
-      const columns = result[0].columns;
-      const values = result[0].values;
-
+      const { columns, values } = results[0];
       let html = '<table border="1"><tr>' + columns.map(c => `<th>${c}</th>`).join('') + '</tr>';
       for (const row of values) {
         html += '<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>';
       }
       html += '</table>';
-
-      document.getElementById('sql-result').innerHTML = html;
+      resultContainer.innerHTML = html;
     }
 
-    // Optional validation check (non-blocking)
+    // Check correctness
     const prompt = prompts[currentPrompt];
-    if (prompt && prompt.validate(sql)) {
+    if (prompt.validate(sql)) {
+      // Show predefined result
+      promptContainer.innerHTML += `<p style="color:green"><b>✅ Correct query!</b> ${prompt.result}</p>`;
       currentPrompt++;
+
       if (currentPrompt < prompts.length) {
         showPrompt();
         document.getElementById('sql-query').value = '';
       } else {
         document.getElementById('next-4').disabled = false;
-        document.getElementById('sql-prompts').innerHTML = "<b>All tasks complete! Click Next to continue.</b>";
+        promptContainer.innerHTML = "<b>All tasks complete! Click Next to continue.</b>";
       }
     } else {
-      document.getElementById('sql-prompts').innerHTML += "<p><i>Query ran, but doesn't match expected pattern. Keep investigating!</i></p>";
+      promptContainer.innerHTML += `<p style="color:orange"><b>⚠️ Query ran, but didn’t match expected pattern.</b> Keep exploring!</p>`;
     }
 
   } catch (err) {
-    document.getElementById('sql-result').textContent = "Error: " + err.message;
+    resultContainer.textContent = "❌ SQL Error: " + err.message;
   }
 };
 
