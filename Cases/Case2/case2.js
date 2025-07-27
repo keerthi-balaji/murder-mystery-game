@@ -27,7 +27,20 @@ document.getElementById('close-forensic').onclick = () => {
 document.getElementById('next-2').onclick = () => showScreen('screen-3');
 
 // From DB structure to SQL investigation
-document.getElementById('next-3').onclick = () => showScreen('screen-4');
+
+document.getElementById('next-3').onclick = async () => {
+  console.log("Next-3 clicked");
+  try {
+    await initDatabase();
+    console.log("Database initialized");
+    showScreen('screen-4');
+  } catch (err) {
+    console.error("Failed to initialize DB:", err);
+  }
+};
+
+
+
 // --- SQL Investigation ---
 const prompts = [
   {
@@ -60,7 +73,7 @@ document.getElementById('run-sql').onclick = () => {
       showPrompt();
       document.getElementById('sql-query').value = '';
     } else {
-      document.getElementById('next-3').disabled = false;
+      document.getElementById('next-4').disabled = false;
       document.getElementById('sql-prompts').innerHTML = "<b>All tasks complete! Click Next to continue.</b>";
     }
   } else {
@@ -68,7 +81,49 @@ document.getElementById('run-sql').onclick = () => {
   }
 };
 
-document.getElementById('next-3').onclick = () => showScreen('screen-4');
+document.getElementById('run-sql').onclick = () => {
+  const sql = document.getElementById('sql-query').value.trim();
+
+  try {
+    const result = db.exec(sql);
+
+    if (result.length === 0) {
+      document.getElementById('sql-result').textContent = "Query executed but returned no results.";
+    } else {
+      const columns = result[0].columns;
+      const values = result[0].values;
+
+      let html = '<table border="1"><tr>' + columns.map(c => `<th>${c}</th>`).join('') + '</tr>';
+      for (const row of values) {
+        html += '<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>';
+      }
+      html += '</table>';
+
+      document.getElementById('sql-result').innerHTML = html;
+    }
+
+    // Optional validation check (non-blocking)
+    const prompt = prompts[currentPrompt];
+    if (prompt && prompt.validate(sql)) {
+      currentPrompt++;
+      if (currentPrompt < prompts.length) {
+        showPrompt();
+        document.getElementById('sql-query').value = '';
+      } else {
+        document.getElementById('next-4').disabled = false;
+        document.getElementById('sql-prompts').innerHTML = "<b>All tasks complete! Click Next to continue.</b>";
+      }
+    } else {
+      document.getElementById('sql-prompts').innerHTML += "<p><i>Query ran, but doesn't match expected pattern. Keep investigating!</i></p>";
+    }
+
+  } catch (err) {
+    document.getElementById('sql-result').textContent = "Error: " + err.message;
+  }
+};
+
+
+document.getElementById('next-4').onclick = () => showScreen('screen-5');
 
 // --- Final Answer ---
 const correctAnswer = "Kiran Rao"; 

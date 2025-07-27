@@ -101,4 +101,11 @@ input[type="text"], textarea {
   line-height: 1.5;
 }
 
-
+#sql-result table {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#sql-result th, #sql-result td {
+  padding: 6px 12px;
+  border: 1px solid #555;
+}
