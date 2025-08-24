@@ -1,0 +1,80 @@
+[
+  {
+    "t": "21:05",
+    "who": "Anika Rao",
+    "where": "VIP Lounge",
+    "event": "Leaves carrying a leather folio."
+  },
+  {
+    "t": "21:12",
+    "who": "Evan Brooks",
+    "where": "Tool Shed",
+    "event": "Signs out rope & harness (witnessed by rigger's assistant)."
+  },
+  {
+    "t": "21:18",
+    "who": "Tao Nguyen",
+    "where": "Clocktower Hatch",
+    "event": "Signs out maintenance hatch key for Hale (key not confirmed returned)."
+  },
+  {
+    "t": "21:27",
+    "who": "Priya Nandakumar",
+    "where": "Riverfront Stage",
+    "event": "Livestream begins (teen streamer confirms partial alibi)."
+  },
+  {
+    "t": "21:30",
+    "who": "Dr. Marcus Hale",
+    "where": "VIP Corridor",
+    "event": "Asks security volunteer for service hatch directions; said checking cabling."
+  },
+  {
+    "t": "21:31",
+    "who": "Dr. Marcus Hale",
+    "where": "Stage Screens",
+    "event": "Festival intro video plays (audio tech unsure if live or pre-recorded)."
+  },
+  {
+    "t": "21:34",
+    "who": "Anika Rao",
+    "where": "Clocktower Base",
+    "event": "Spotted rushing past vendor #14 with leather folder, texting: 'Got the list. Meeting top.'"
+  },
+  {
+    "t": "21:38",
+    "who": "Unknown + Anika",
+    "where": "Clocktower Gear Room",
+    "event": "Motion sensor logs two bodies."
+  },
+  {
+    "t": "21:40",
+    "who": "Anika Rao",
+    "where": "Clocktower Belfry",
+    "event": "Fatal fall; bell jams briefly."
+  },
+  {
+    "t": "21:46",
+    "who": "Unknown",
+    "where": "Artisan Lane Exit",
+    "event": "Maintenance crew spots dusty-jacketed figure leaving tunnels quickly; ID unconfirmed (Hale later emerges here)."
+  },
+  {
+    "t": "21:52",
+    "who": "Evan Brooks",
+    "where": "Tool Shed",
+    "event": "Returns rope & harness; assistant notes rope dirtier/greasier than before."
+  },
+  {
+    "t": "21:35-21:50",
+    "who": "Lena Ortiz",
+    "where": "Festival Ops",
+    "event": "Seen multiple times near ops tent talking on comms; food vendor unsure if she stayed entire time."
+  },
+  {
+    "t": "21:58",
+    "who": "Lena Ortiz",
+    "where": "Festival Ops",
+    "event": "Files incident log."
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Dr. Marcus Hale",
+    "role": "Museum Historian",
+    "img": "data/images/marcus.png",
+    "description": "A celebrated historian known for acquiring rare artifacts, but whispers of questionable dealings linger.",
+    "age": 44,
+    "height_cm": 183,
+    "hair_color": "Salt-and-pepper"
+  },
+  {
+    "name": "Lena Ortiz",
+    "role": "Festival Director",
+    "img": "data/images/lena1.png",
+    "description": "Ambitious and sharp-witted, she juggles politics, sponsors, and old scandals.",
+    "age": 39,
+    "height_cm": 168,
+    "hair_color": "Chestnut brown"
+  },
+  {
+    "name": "Tao Nguyen",
+    "role": "Locksmith/Props",
+    "img": "data/images/tao1.png",
+    "description": "Talented in engineering, with festival rigging under his control. Secretive and cautious.",
+    "age": 34,
+    "height_cm": 176,
+    "hair_color": "Black"
+  },
+  {
+    "name": "Priya Nandakumar",
+    "role": "Influencer Host",
+    "img": "data/images/priya.png",
+    "description": "Social media darling, hosting the livestream. Entangled in drama behind her flawless smile.",
+    "age": 27,
+    "height_cm": 165,
+    "hair_color": "Jet black"
+  },
+  {
+    "name": "Evan Brooks",
+    "role": "Stage Technician",
+    "img": "data/images/evan.png",
+    "description": "Keeps the stage running. Calm under pressure, but seems unusually interested in certain tools.",
+    "age": 31,
+    "height_cm": 180,
+    "hair_color": "Dirty blonde"
+  }
+]

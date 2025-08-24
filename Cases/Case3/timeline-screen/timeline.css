@@ -1,0 +1,231 @@
+/* Case-2 parchment look + your colored chips */
+:root{
+  --paper:#fff8e6;
+  --paper-dark:#f5ecd7;
+  --ink:#222;
+  --muted:#5b5b5b;
+  /* --edge:#d4c08a; */
+  --edge-dark:#bdb76b;
+
+  /* chip border colors (kept) */
+  --c-time:#4b6ad6;
+  --c-name:#8a5bd6;
+  --c-location:#47a3a3;
+  --c-phrase:#d68a5b;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--paper-dark);
+  color:var(--ink);
+  font-family:'Special Elite', cursive, Arial, sans-serif;
+  line-height:1.5;
+}
+
+.case-title{
+  font-family:'Creepster', cursive;
+  font-size: 2.1rem;
+  text-align:center;
+  margin:0;
+}
+
+.titlebar{
+  display:grid;
+  grid-template-columns: 140px 1fr 140px;
+  grid-template-areas: "left title right";
+  align-items:center;
+  gap:8px;
+  max-width:1100px;
+  margin:18px auto 0;
+  padding:6px 8px;
+}
+
+.back-btn{ grid-area:left; justify-self:start; }
+.case-title{ grid-area:title; justify-self:center; margin:0; }
+.right-actions{
+  grid-area:right;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  justify-self:end;
+}
+
+/* (optional) small screens */
+@media (max-width: 720px){
+  .case-title{ font-size:1.8rem; text-align:center; }
+  .right-actions{ flex-wrap:wrap; justify-content:flex-end; }
+}
+
+.back-btn, .exit-btn, .next-btn, .action-btn, #openWitness{
+  background:#d3cfc7;
+  border:none;
+  border-radius:6px;
+  padding:.6em 1.4em;
+  font-size:1rem;
+  cursor:pointer;
+  font-family:inherit;
+  color:#222;
+  text-decoration:none;
+  box-shadow:1px 1px 4px #00000022;
+  display:inline-block;
+  text-align:center;
+}
+.exit-btn{ justify-self:end; }
+.back-btn{ justify-self:start; }
+
+/* Keep the CTA on one line and give it a stable width */
+.next-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:42px;              /* matches your other buttons */
+  white-space:nowrap;       /* never wrap */
+  min-width: clamp(12rem, 24ch, 16rem); /* responsive but fixed-looking */
+  padding:0 1.1em;          /* keep edges comfy */
+}
+
+
+/* Toolbar strip */
+.toolbar{
+  max-width:1100px;
+  margin: 0 auto;
+  background:#fffbe9;
+  border:2px solid var(--edge);
+  border-radius:12px;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:0 2px 10px #00000014;
+}
+.toolbar .spacer{flex:1}
+.hint-inline{color:var(--muted)}
+button:disabled{opacity:.55;cursor:not-allowed}
+
+/* Two-column canvas */
+.layout{
+  max-width:1100px;
+  margin:16px auto;
+  display:grid;
+  grid-template-columns: 420px 1fr;
+  gap:16px;
+}
+
+/* Cards */
+.panel, .panel1{
+  background:#fffbe9;
+  border:2px solid var(--edge);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 2px 16px #00000022;
+  min-height:0;
+  overflow:auto;
+}
+.panel h2, .panel1 h2 { margin: 0 0 6px 0; }
+.panel h3, .panel1 h3 { margin: 14px 0 6px 0; }
+
+
+/* Chips (colored borders kept) */
+.pool{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+.item{
+  padding:8px 12px;
+  border:2px solid #999;
+  border-radius:999px;
+  background:#fffdf1;
+  cursor:grab; user-select:none;
+  box-shadow:0 1px 6px #00000010;
+}
+.item[data-type="time"]{ border-color: var(--c-time); }
+.item[data-type="name"]{ border-color: var(--c-name); }
+.item[data-type="location"]{ border-color: var(--c-location); }
+.item[data-type="phrase"]{ border-color: var(--c-phrase); }
+
+/* Rail */
+.badge{
+  display:inline-block;
+  background:#fffdf1;
+  border:2px solid var(--edge-dark);
+  border-radius:999px;
+  padding:4px 10px;
+  color:#444;
+  margin:6px 0 12px;
+}
+.rail{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:14px;
+}
+@media (min-width: 980px){ .rail{ grid-template-columns: repeat(4, 1fr);} }
+
+.slot{
+  min-height:110px;
+  background:#fffdf1;
+  border:2px dashed var(--edge-dark);
+  border-radius:14px;
+  padding:10px;
+}
+.slot h4{ margin:0 0 8px 0; font-size:1rem; color:#555; }
+.pill{
+  display:inline-block;
+  margin:6px 6px 0 0;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#fffbe9;
+  border:2px solid #cdbb8c;
+  box-shadow:0 1px 6px #00000010;
+}
+.pill small{ color:#666 }
+
+/* Modal styled like Case 2 card */
+.modal{position:fixed;inset:0;display:none;z-index:1000}
+.modal.show{display:block}
+.modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+.modal__dialog{
+  position:relative; z-index:1;
+  max-width:920px; max-height:84vh; overflow:auto;
+  margin:6vh auto; padding:18px;
+  background:#fdf7e3;
+  border:2px solid var(--edge);
+  border-radius:12px;
+  box-shadow:0 0 20px rgba(0,0,0,.45);
+}
+.modal__close{
+  position:absolute; top:8px; right:8px;
+  background:#d3cfc7; border:none; color:#222;
+  border-radius:6px; padding:4px 8px; cursor:pointer;
+}
+
+/* Small screens */
+@media (max-width:1120px){
+  .layout{ grid-template-columns:1fr; }
+  .titlebar{ grid-template-columns: 100px 1fr 100px; }
+  .case-title{ font-size:1.8rem; }
+}
+
+/* put title + actions on one line */
+.panel-head1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.panel-head1 h2 {
+  margin: 0;
+}
+.panel-head1 .panel-actions1 {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* optional: wrap nicely on narrow screens */
+@media (max-width: 720px) {
+  .panel-head1 { flex-wrap: wrap; }
+  .panel-head1 .panel-actions1 {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "clock",
+    "name": "Clocktower Belfry",
+    "desc": "Narrow stairs, bell mechanism; fresh grease on the third landing rail."
+  },
+  {
+    "id": "clockb",
+    "name": "Clocktower Base",
+    "desc": "Festival entrance near the tower; Anika was found here."
+  },
+  {
+    "id": "stage",
+    "name": "Riverfront Stage",
+    "desc": "Screens can run pre-recorded intros; main crowd hub during the festival."
+  },
+  {
+    "id": "front",
+    "name": "Stage Front",
+    "desc": "Packed with livestream viewers and fans of the headliner, Priya Nandakumar."
+  },
+  {
+    "id": "lane",
+    "name": "Artisan Lane",
+    "desc": "Crowded stalls; tunnel exit nearby."
+  },
+  {
+    "id": "food",
+    "name": "Food Court",
+    "desc": "Central food hub; radio logs and vendor permits tracked here."
+  },
+  {
+    "id": "vip",
+    "name": "VIP Lounge (Annex)",
+    "desc": "Key desk and donor list cover story; controlled access to restricted areas."
+  },
+  {
+    "id": "vip-c",
+    "name": "VIP Corridor",
+    "desc": "Access to service hatch; monitored by security volunteers."
+  },
+  {
+    "id": "tool",
+    "name": "Tool Shed",
+    "desc": "Equipment checkout station."
+  },
+  {
+    "id": "tunnel",
+    "name": "Service Tunnels",
+    "desc": "Maintenance hatch at tower base; motion trigger at 21:38."
+  }
+]
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Case 3 – The Clockwork Masquerade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Creepster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case3.css" />
+</head>
+<body>
+  <!-- <header class="topbar">
+    <h1>The Clockwork Masquerade</h1>
+    <nav><a href="../../index.html">← Back to Cases</a></nav>
+  </header> -->
+
+  <!-- SCREEN 1: INTRO (Case Instructions, matches Case 2 card style) -->
+<section id="screenIntro" class="screen show">
+  <div class="intro-card intro-card--large">
+    <h2 class="case-title">CASE 3: THE CLOCKWORK MASQUERADE</h2>
+
+    <p>
+      <br>
+      The Riverstone's Riverlight Festival was meant to dazzle — thousands gathered beneath the historic Harbor Clocktower for lights, music, and celebration. But at 21:40, the festivities came to a halt.
+      <br>
+    </p>
+    <p>
+      Investigative journalist <b>Anika Rao</b> was found dead in the <b>Harbor Clocktower belfry.</b> Authorities are calling it an accident. The details, however, don’t sit right.
+    </p>
+
+    <p>
+      You’ve been brought in to quietly <b>reconstruct the night</b> and separate <b>festival theatrics from hidden truths.</b>
+    </p>
+
+    <p>Your investigation will unfold in stages:</p>
+      <ol style="margin-left: 20px; line-height: 1.3;">
+        <li><b>Build a neutral timeline</b> using witness statements to piece together events.</li>
+        <li><b>Analyze the evidence</b> and connect suspects, motives, and locations on your murder board.</li>
+        <li>When your board tells a <b>coherent story</b>, make your accusation — but choose carefully.</li>
+      </ol>
+
+
+    <p style="margin-top: 25px;">
+      Every statement matters. Every connection counts. The truth is buried in the chaos of the festival… and it’s up to you to uncover it.
+    </p>
+
+    <!-- <div class="detective-intro">
+      // Optional avatar; safe to remove if you don’t want it 
+      <img class="detective-img" alt="Detective" src="https://cdn.jsdelivr.net/gh/tailwindlabs/heroicons@v2.1.5/optimized/24/outline/user-circle.svg">
+      <div><b>Detective’s Note:</b> “Facts first on the timeline. Then we follow the threads.”</div>
+    </div> -->
+
+    <div class="intro-actions">
+      <a class="exit-btn" href="../../index.html">Exit</a>
+      <button id="goTimeline" class="next-btn">Start Timeline Build</button>
+    </div>
+  </div>
+</section>
+
+
+<section id="screenInvestigation" class="screen">
+  <!-- Row 1: Title + Back (left) / Exit (right) -->
+  <div class="invest-header">
+    <a id="btnBack" class="btn-link" href="./timeline-screen/timeline.html">← Back</a>
+    <h2 class="invest-title">The Clockwork Masquerade — Murder Board</h2>
+    <a id="btnExit" class="btn-link" href="../../index.html">Exit</a>
+  </div>
+
+  <!-- Row 2: Case popups + Map toggle + Progress -->
+  <div class="toolbar toolbar--secondary">
+    <button data-modal="instructions">Case Instructions</button>
+    <button data-modal="interrogation">Interrogation Statements</button>
+    <button data-modal="suspects">Suspect Cards</button>
+    <button data-modal="map" title="Open Map">🗺️ Map</button>
+    <div class="spacer"></div>
+    <span id="progressBadge" class="badge">Progress: 0%</span>
+  </div>
+
+  <!-- (Optional) read-only timeline strip -->
+  <div class="timeline-strip panel">
+    <div class="timeline-row">
+      <strong style="margin-right:10px">Timeline (21:00–22:00)</strong>
+      <input id="timeRange" type="range" min="0" max="60" value="0" />
+      <span id="timeLabel" class="badge" style="margin-left:10px">21:00</span>
+    </div>
+    <ul id="timelineList" class="timeline-list"></ul>
+  </div>
+
+  <!-- Two-column: Board LEFT | Library RIGHT -->
+  <div class="layout-board">
+    <!-- LEFT: Murder Board (board actions live here) -->
+    <section class="panel">
+      <div class="board-head">
+        <h3 class="board-title">Murder Board</h3>
+        <div class="board-actions">
+          <button id="saveBoard">Save Board</button>
+          <button id="clearBoard">Clear Board</button>
+          <button id="hintBtn">Hint</button>
+        </div>
+      </div>
+
+      <div id="board" class="board" tabindex="0" aria-label="Murder Board">
+        <div class="board-inner"></div>
+      </div>
+
+      <details class="solution" id="submitWrap">
+        <summary>Submit Your Solution</summary>
+        <form id="solutionForm" class="grid2">
+          <label>Culprit <input name="culprit" placeholder="Full name" /></label>
+          <label>Time (HH:MM) <input name="time" placeholder="21:40" /></label>
+          <label>Location <input name="location" placeholder="e.g., Clocktower Belfry" /></label>
+          <label>Method <input name="method" placeholder="Short description" /></label>
+          <label class="full">Motive <input name="motive" placeholder="Why did they do it?" /></label>
+          <button type="submit" class="full">Submit Answer</button>
+        </form>
+        <div id="checkResult" role="status" class="result"></div>
+      </details>
+    </section>
+
+    <!-- RIGHT: Investigation Library -->
+    <section class="panel">
+      <h3 class="library-title">Investigation Library</h3>
+      <p class="hint">Drag chips onto the board. Open the popups above for full details.</p>
+
+      <h4>Suspects</h4>
+      <div class="chips" id="suspectChips"></div>
+
+      <h4>Motives</h4>
+      <div class="chips" id="motiveChips"></div>
+
+      <h4>Clues</h4>
+      <div class="chips" id="clueChips"></div>
+
+      <h4>Locations</h4>
+      <div class="chips" id="locationChips"></div>
+    </section>
+  </div>
+</section>
+
+
+
+  <!-- MODAL (shared) -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" aria-label="Close">×</button>
+      <h3 id="modalTitle"></h3>
+      <div id="modalBody" class="modal__body"></div>
+    </div>
+    <div class="modal__backdrop"></div>
+  </div>
+
+  <!-- JS must be deferred so #startBtn exists when we attach the handler -->
+  <script type="module" src="case3.js"></script>
+
+</body>
+</html>

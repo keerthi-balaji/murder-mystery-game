@@ -1,0 +1,13 @@
+{
+  "width": 1200,
+  "height": 700,
+  "nodes": [
+    {"id":"clock","x":180,"y":180,"label":"Clocktower"},
+    {"id":"stage","x":940,"y":180,"label":"Riverfront Stage"},
+    {"id":"lane","x":940,"y":350,"label":"Artisan Lane"},
+    {"id":"food","x":940,"y":520,"label":"Food Court"},
+    {"id":"vip","x":560,"y":300,"label":"VIP Lounge"},
+    {"id":"tunnel","x":320,"y":360,"label":"Service Tunnels"}
+  ],
+  "edges": [["clock","tunnel"],["tunnel","lane"],["vip","stage"],["vip","clock"],["stage","lane"],["lane","food"]]
+}

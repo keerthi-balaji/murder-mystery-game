@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Case 3 — Build the Timeline (21:00 → 22:00)</title>
+
+  <!-- Case-2 look -->
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Creepster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="timeline.css" />
+</head>
+<body>
+
+  <!-- Title bar: Back (left), Title (center), Exit (right) -->
+  <header class="titlebar">
+  <a class="back-btn" href="../case3.html">← Back</a>
+
+  <h1 class="case-title">Build the Timeline</h1>
+
+  <div class="right-actions">
+    <button id="toBoard" class="next-btn" disabled>Proceed to Murder Board</button>
+    <a class="exit-btn" href="../../../index.html">Exit</a>
+  </div>
+</header>
+
+
+  <!-- Top toolbar like Case 2
+  <div class="toolbar">
+    <button id="openWitness" class="action-btn">Witness Statements</button>
+    <span class="hint-inline">Drag <b>Names</b>, <b>Times</b>, <b>Locations</b>, and <b>Phrases</b> into the slots. Keep it neutral.</span>
+    <div class="spacer"></div>
+    <button id="resetTimeline" class="action-btn">Reset</button>
+    <button id="toBoard" class="next-btn" disabled>Proceed to Murder Board</button>
+  </div> -->
+
+  <div class="toolbar">
+    
+    <span class="hint-inline">Drag <b>Names</b>, <b>Times</b>, <b>Locations</b>, and <b>Phrases</b> into the slots to reconstruct the night.</span>
+    <div class="spacer"></div>
+    <button id="openWitness">Witness Statements</button>
+    <!-- <div class="spacer"></div> -->
+    <!-- <span id="valBadge" class="badge">Not validated</span> -->
+  </div>
+
+
+  <main class="layout">
+        <!-- Left: Draggables (collapsible categories) -->
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Draggables</h2>
+        <div class="coll-controls">
+          <button id="expandAll" class="action-btn">Expand all</button>
+          <button id="collapseAll" class="action-btn">Collapse all</button>
+        </div>
+      </div>
+      <p class="muted">Tip: Place the each clue into the one time slot.
+One slot = one event.</p>
+
+      <details class="coll" open>
+        <summary>Names</summary>
+        <div id="pool-names" class="pool"></div>
+      </details>
+
+      <details class="coll" open>
+        <summary>Times</summary>
+        <div id="pool-times" class="pool"></div>
+      </details>
+
+      <details class="coll" open>
+        <summary>Locations</summary>
+        <div id="pool-locations" class="pool"></div>
+      </details>
+
+      <details class="coll" open>
+        <summary>Phrases</summary>
+        <div id="pool-phrases" class="pool"></div>
+      </details>
+    </section>
+
+
+    <!-- Right: Rail -->
+    <section class="panel1">
+      <div class="panel-head1">
+        <h2>Timeline Rail</h2>
+        <div class="panel-actions1">
+          <!-- optional live score spot
+          <span id="scoreBadge" class="badge" aria-live="polite"></span> -->
+          <button id="resetTimeline" class="action-btn">Reset</button>
+          <button id="validateBtn" class="action-btn">Validate</button>
+        </div>
+      </div>
+
+  <p class="muted">Order matters — this timeline will be used to verify alibis and uncover contradictions later.</p>
+  <span id="placedCount" class="badge">0 items placed</span>
+
+  <div id="rail" class="rail"></div>
+</section>
+
+  </main>
+
+  <!-- Witness modal (same behavior) -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" aria-label="Close">×</button>
+      <h3 id="modalTitle">Witness Statements</h3>
+      <div id="modalBody" class="modal__body"></div>
+    </div>
+    <div class="modal__backdrop"></div>
+  </div>
+
+  <script type="module" src="timeline.js"></script>
+</body>
+</html>
