@@ -3,9 +3,9 @@
   "points": [
     "Click map pins to read a location; click the same pin again to drop that Location on the board.",
     "Use the timeline slider to reveal events progressively; drag timeline events onto the board.",
-    "Open 'Suspects' to read detailed alibis and motives; drag suspect chips to the board from the library.",
+    "Open 'Suspects' to read about the suspects; drag suspect chips to the board from the library.",
     "Shift-click any two cards on the board to draw a thread between them.",
     "Save your board anytime; you can clear and rebuild without losing the story.",
-    "Submit your solution from the panel on the right. Feedback never reveals the answer."
+    "When your board tells a coherent story of who, why, and how, make your accusation — but choose carefully.(Submit your solution at the bottom.)"
   ]
 }

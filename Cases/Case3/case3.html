@@ -66,7 +66,7 @@
 
   <!-- Row 2: Case popups + Map toggle + Progress -->
   <div class="toolbar toolbar--secondary">
-    <button data-modal="instructions">Case Instructions</button>
+    <button data-modal="instructions">Murder Board Instructions</button>
     <button data-modal="interrogation">Interrogation Statements</button>
     <button data-modal="suspects">Suspect Cards</button>
     <button data-modal="map" title="Open Map">🗺️ Map</button>
@@ -75,14 +75,20 @@
   </div>
 
   <!-- (Optional) read-only timeline strip -->
-  <div class="timeline-strip panel">
-    <div class="timeline-row">
-      <strong style="margin-right:10px">Timeline (21:00–22:00)</strong>
-      <input id="timeRange" type="range" min="0" max="60" value="0" />
-      <span id="timeLabel" class="badge" style="margin-left:10px">21:00</span>
+    <div class="timeline-strip panel">
+      <div class="timeline-row">
+        <strong>Timeline (21:00–22:00)</strong>
+      </div>
+      <div class="numline">
+        <div class="numline-track"></div>
+        <div class="numline-ticks"></div>
+        <div id="numlineHandle" class="numline-handle" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0" aria-label="Minute"></div>
+        <div id="numlinePopover" class="numline-popover" hidden></div>
+        <div id="numlineTime" class="numline-time">21:00</div>
+        <input id="timeRange" type="range" min="0" max="60" step="1" value="0" />
+      </div>
     </div>
-    <ul id="timelineList" class="timeline-list"></ul>
-  </div>
+
 
   <!-- Two-column: Board LEFT | Library RIGHT -->
   <div class="layout-board">
@@ -100,41 +106,64 @@
       <div id="board" class="board" tabindex="0" aria-label="Murder Board">
         <div class="board-inner"></div>
       </div>
-
-      <details class="solution" id="submitWrap">
-        <summary>Submit Your Solution</summary>
+<br><br>
+      <details class="solution" id="submitWrap"> 
+        <summary><b>Submit Your Solution</b></summary>
         <form id="solutionForm" class="grid2">
-          <label>Culprit <input name="culprit" placeholder="Full name" /></label>
-          <label>Time (HH:MM) <input name="time" placeholder="21:40" /></label>
-          <label>Location <input name="location" placeholder="e.g., Clocktower Belfry" /></label>
-          <label>Method <input name="method" placeholder="Short description" /></label>
-          <label class="full">Motive <input name="motive" placeholder="Why did they do it?" /></label>
+          <label>Culprit
+            <select id="ansCulprit" name="culprit"></select>
+          </label>
+
+          <label>Time (HH:MM)
+            <select id="ansTime" name="time"></select>
+          </label>
+
+          <label>Location
+            <select id="ansLocation" name="location"></select>
+          </label>
+
+          <label>Method
+            <select id="ansMethod" name="method"></select>
+          </label>
+
+          <label class="full">Motive
+            <select id="ansMotive" name="motive"></select>
+          </label>
+
           <button type="submit" class="full">Submit Answer</button>
         </form>
         <div id="checkResult" role="status" class="result"></div>
-      </details>
+      </details> 
     </section>
 
     <!-- RIGHT: Investigation Library -->
-    <section class="panel">
-      <h3 class="library-title">Investigation Library</h3>
-      <p class="hint">Drag chips onto the board. Open the popups above for full details.</p>
-
-      <h4>Suspects</h4>
-      <div class="chips" id="suspectChips"></div>
-
-      <h4>Motives</h4>
-      <div class="chips" id="motiveChips"></div>
-
-      <h4>Clues</h4>
-      <div class="chips" id="clueChips"></div>
-
-      <h4>Locations</h4>
-      <div class="chips" id="locationChips"></div>
-    </section>
+<section class="panel" id="libraryPanel">
+  <div class="library-head">
+    <h3 class="library-title">Investigation Library</h3>
+    <button id="collapseAll" class="btn-link" type="button" title="Collapse all sections">Collapse All ▾</button>
   </div>
-</section>
+  <p class="hint">Drag chips onto the board. Open the popups above for full details.</p>
 
+  <details>
+    <summary>Suspects</summary>
+    <div class="chips" id="suspectChips"></div>
+  </details>
+
+  <details>
+    <summary>Motives</summary>
+    <div class="chips" id="motiveChips"></div>
+  </details>
+
+  <details>
+    <summary>Clues</summary>
+    <div class="chips" id="clueChips"></div>
+  </details>
+
+  <details>
+    <summary>Locations</summary>
+    <div class="chips" id="locationChips"></div>
+  </details>
+</section>
 
 
   <!-- MODAL (shared) -->

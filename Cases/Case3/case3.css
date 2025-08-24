@@ -137,7 +137,7 @@ button:hover,.btn-link:hover{ filter:brightness(1.04) }
   min-height:560px;
   box-shadow: inset 0 0 20px #0000000f;
 }
-.board-inner{ position:relative; width:1600px; height:1000px }
+.board-inner{ position:relative; width:1600px; height:600px }
 .card{
   position:absolute; min-width:190px; max-width:270px;
   background:#fdf7e3;
@@ -431,3 +431,139 @@ button:hover,.btn-link:hover{ filter:brightness(1.04) }
     height: 480px; /* slightly smaller on smaller screens */
   }
 }
+
+.library-head{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: 6px;
+}
+#collapseAll{
+  padding: .35em .8em; font-size: .9rem;
+}
+
+/* === Number-line timeline (fixed alignment + time badge) ===
+.numline{ position:relative; height:104px; padding:38px 14px 20px; }
+.numline-track{ position:relative; height:4px; background:#d8cfae; border-radius:4px; }
+.numline-ticks{ position:absolute; left:14px; right:14px; top:34px; height:10px; pointer-events:none; }
+.numline-ticks .tick{ position:absolute; top:0; width:1px; height:10px; background:#7b7359; transform:translateX(-50%); opacity:.9; }
+.numline-ticks .tick.major{ height:14px; width:2px; background:#4f4732; } */
+
+#timeRange{ position:absolute; left:14px; right:14px; top:30px; width:calc(100% - 28px); appearance:none; background:transparent; height:28px; outline:none; }
+#timeRange::-webkit-slider-thumb{ appearance:none; width:0; height:0; }
+#timeRange::-moz-range-thumb{ width:0; height:0; border:0; }
+
+.timeline-strip {
+  position: relative;  /* needed for absolute popover positioning */
+  overflow: visible !important;  /* allow popover to escape */
+  z-index: 1;          /* ensure it's above the board background */
+}
+
+.numline-handle:active{ cursor:grabbing; }
+
+.numline-popover h5{ margin:0 0 4px; font-size:1rem; }
+.numline-popover p{ margin:0; font-size:.95rem; color:var(--muted); }
+
+
+/* ===== Number-line compact layout ===== */
+.numline {
+  position: relative;
+  padding: 10px 14px 60px; /* less padding below */
+}
+
+/* Track line */
+.numline-track {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 28px;                /* move up */
+  height: 3px;              /* thinner line */
+  background: #d2c79a;
+  border-radius: 4px;
+}
+
+/* 12 ticks */
+.numline-ticks {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 24px;
+  height: 8px;
+}
+.numline-ticks span {
+  position: absolute;
+  top: 0;
+  width: 1.5px;             /* thinner */
+  height: 8px;
+  background: #bdaa77;
+  transform: translateX(-50%);
+}
+
+/* Handle smaller */
+.numline-handle {
+  position: absolute;
+  top: 21px;
+  width: 14px;              /* smaller size */
+  height: 14px;
+  border-radius: 50%;
+  background: #2f3a6e;
+  border: 2px solid #efe7c6; /* thinner border */
+  box-shadow: 0 1px 0 #9b8f60;
+  transform: translateX(-50%);
+}
+
+/* Time bubble smaller */
+#numlineTime {
+  position: absolute;
+  top: 42px;                /* closer below handle */
+  left: 14px;
+  transform: translateX(-50%);
+  background: #fff3c9;
+  border: 1.5px solid var(--edge);
+  padding: 2px 8px;         /* smaller padding */
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.8rem;        /* smaller font */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .12);
+}
+#numlineTime::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #fff3c9 transparent transparent transparent;
+  filter: drop-shadow(0 -1px 0 var(--edge));
+}
+
+/* Event popover compact */
+/* Timeline popover forced to front */
+#numlinePopover {
+  position: absolute;
+  top: -65px;            /* place ABOVE the slider */
+  transform: translateX(-50%);
+  min-width: 220px;
+  max-width: 300px;
+  background: #fffbe9;
+  border: 2px solid var(--edge);
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  color: var(--ink);
+  z-index: 9999;         /* BRING TO FRONT */
+  pointer-events: none;  /* avoid blocking slider interaction */
+}
+
+/* Optional: arrow under popover */
+#numlinePopover::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0 8px;
+  border-style: solid;
+  border-color: #fffbe9 transparent transparent transparent;
+  filter: drop-shadow(0 1px 0 var(--edge));
+}
+

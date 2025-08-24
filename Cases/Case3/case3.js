@@ -60,7 +60,7 @@ els('[data-modal]').forEach(btn=>{
     const type = btn.dataset.modal;
     if(type === 'instructions'){
       const items = data.instructions.points.map(p=>`<li>${p}</li>`).join('');
-      openModal('Case Instructions', `
+      openModal('Murder Board Instructions', `
         <p>${data.instructions.lead}</p>
         <ul>${items}</ul>
         <p><b>Goal:</b> identify culprit, time, location, method, motive. Build the logic on your board first, then submit your guess.</p>
@@ -252,19 +252,92 @@ function showInfoAtPin(pinEl, L){
 
 
 // ----------------- Timeline -----------------
-const list = el('#timelineList');
-const timeLabel = el('#timeLabel');
-const range = el('#timeRange');
-const timeToMin = t => { const [H,M]=t.split(':').map(Number); return (H*60+M) - (21*60); };
-const labelFor = v => { const total=1260+Number(v); const H=Math.floor(total/60),M=total%60; return `${String(H).padStart(2,'0')}:${String(M).padStart(2,'0')}`; };
-const renderTimeline = (maxMin) => {
-  list.innerHTML='';
-  data.timeline.filter(e=> timeToMin(e.t) <= maxMin).forEach(e=>{
-    const li = document.createElement('li');
-    li.innerHTML = `<b>${e.t}</b> — <b>${e.who}</b> at <b>${e.where}</b>: ${e.event}`;
-    list.appendChild(li);
+// ----------------- Interactive Number-Line Timeline -----------------
+
+// after:
+const trackEl    = el('.numline-track');
+const handle     = el('#numlineHandle');
+const pop        = el('#numlinePopover');
+const timeBadge  = el('#numlineTime');
+const rangeEl    = el('#timeRange');
+
+// build 12 divisions (13 tick marks incl. ends)
+const ticksEl = el('.numline-ticks');
+if (ticksEl) {
+  ticksEl.innerHTML = Array.from({ length: 13 }, (_, i) =>
+    `<span style="left:${(i / 12) * 100}%"></span>`
+  ).join('');
+}
+
+
+// group events by minute offset from 21:00
+const eventsByMinute = {};
+data.timeline.forEach(e => {
+  const [H, M] = e.t.split(':').map(Number);
+  const minute = (H * 60 + M) - (21 * 60);
+  if (minute >= 0 && minute <= 60) {
+    (eventsByMinute[minute] ||= []).push(e);
+  }
+});
+
+function setHandleAt(minute) {
+  minute = Math.max(0, Math.min(60, Math.round(minute)));
+  rangeEl.value = String(minute);
+  handle.setAttribute('aria-valuenow', minute);
+
+  const rect = trackEl.getBoundingClientRect();
+  const leftPx = 14 + (rect.width * (minute / 60)); // 14px matches track padding
+  handle.style.left = leftPx + 'px';
+
+  const timeStr = `21:${String(minute).padStart(2,'0')}`;
+  timeBadge.textContent = timeStr;
+  timeBadge.style.left = leftPx + 'px';
+
+  const evs = eventsByMinute[minute];
+  if (evs) {
+    pop.innerHTML = `
+      <h5>${timeStr}</h5>
+      ${evs.map(e => `<p><b>${e.who}</b> at <b>${e.where}</b>: ${e.event}</p>`).join('')}
+    `;
+    pop.style.left = leftPx + 'px';
+    pop.hidden = false;
+  } else {
+    pop.hidden = true;
+  }
+}
+
+// native range input drives the handle
+rangeEl.addEventListener('input', e => setHandleAt(Number(e.target.value)));
+
+// drag the custom handle
+(() => {
+  let dragging = false, startX = 0, startVal = 0, rect;
+  const onMove = x => {
+    const dx = x - startX;
+    const minute = startVal + (dx / rect.width) * 60;
+    setHandleAt(minute);
+  };
+  handle.addEventListener('mousedown', e => {
+    dragging = true; startX = e.clientX; startVal = Number(rangeEl.value);
+    rect = trackEl.getBoundingClientRect(); e.preventDefault();
   });
-};
+  window.addEventListener('mousemove', e => dragging && onMove(e.clientX));
+  window.addEventListener('mouseup',   () => dragging = false);
+
+  // keyboard support
+  handle.addEventListener('keydown', e => {
+    const v = Number(rangeEl.value);
+    if (e.key === 'ArrowLeft')  setHandleAt(v - 1);
+    if (e.key === 'ArrowRight') setHandleAt(v + 1);
+    if (e.key === 'Home')       setHandleAt(0);
+    if (e.key === 'End')        setHandleAt(60);
+  });
+})();
+
+// initialize
+setHandleAt(0);
+
+
 // Map drawer toggle
 const mapBtn = document.getElementById('toggleMap');
 const mapDrawer = document.getElementById('mapDrawer');
@@ -276,11 +349,64 @@ if (mapBtn && mapDrawer) {
   });
 }
 
-range.addEventListener('input', e=>{
-  timeLabel.textContent = labelFor(e.target.value);
-  renderTimeline(Number(e.target.value));
-});
-renderTimeline(0);
+function populateAnswerDropdowns() {
+  // Elements
+  const culSel = el('#ansCulprit');
+  const timeSel = el('#ansTime');
+  const locSel = el('#ansLocation');
+  const methodSel = el('#ansMethod');
+  const motiveSel = el('#ansMotive');
+
+  // Utils
+  const setOptions = (sel, opts, placeholder='— Select —') => {
+    sel.innerHTML = '';
+    const ph = document.createElement('option');
+    ph.value = '';
+    ph.textContent = placeholder;
+    sel.appendChild(ph);
+    opts.forEach(v => {
+      const o = document.createElement('option');
+      o.value = v;
+      o.textContent = v;
+      sel.appendChild(o);
+    });
+  };
+
+  // Build option lists
+  const suspects = data.suspects.map(s => s.name);
+  const times = [...new Set(data.timeline.map(e => e.t))].sort();  // unique, sorted
+  const locations = data.locations.map(l => l.name);
+
+  // Use concise, guided choices for method & motive
+  const methods = [
+    'Pushed from belfry with rope involved',
+    'Pushed with grease on railing',
+    'Pushed; rope + grease',
+    'Other'
+  ];
+
+  // If you want these to match the chips exactly, you can sync with the motives array,
+  // but here’s a safe curated list:
+  const motives = [
+    'Artifact smuggling profits',
+    'Budget scandal fallout',
+    'Reputation/access control',
+    'Career rivalry',
+    'Debt/payment',
+    'Other'
+  ];
+
+  // Populate
+  setOptions(culSel, suspects, '— Choose culprit —');
+  setOptions(timeSel, times, '— Choose time —');
+  setOptions(locSel, locations, '— Choose location —');
+  setOptions(methodSel, methods, '— Choose method —');
+  setOptions(motiveSel, motives, '— Choose motive —');
+}
+
+// Call it once data is ready (after you load data and before user interaction)
+populateAnswerDropdowns();
+
 
 // ----------------- Chips -----------------
 const mkChip = (html, payload) => {
@@ -499,6 +625,24 @@ el('#solutionForm').addEventListener('submit', (e)=>{
   }
   updateProgress();
 });
+
+// --- Library: default collapsed + Collapse All button ---
+const libraryPanel = el('#libraryPanel');
+if (libraryPanel) {
+  const libSections = [...libraryPanel.querySelectorAll('details')];
+
+  // Ensure all library sections are collapsed on load
+  libSections.forEach(d => { d.open = false; });
+
+  // Collapse All button
+  const collapseBtn = el('#collapseAll');
+  if (collapseBtn) {
+    collapseBtn.addEventListener('click', () => {
+      libSections.forEach(d => { d.open = false; });
+    });
+  }
+}
+
 
 // Initial canvas
 layoutCanvas();
