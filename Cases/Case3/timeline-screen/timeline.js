@@ -403,3 +403,24 @@ $('#openWitness').addEventListener('click', ()=>{
 });
 document.querySelector('.modal__close').addEventListener('click', ()=> showModal(false));
 document.querySelector('.modal__backdrop').addEventListener('click', ()=> showModal(false));
+
+function clearCase3Storage() {
+  const toDelete = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (!k) continue;
+    // catch timeline + board + any case3-prefixed keys
+    if (k.toLowerCase().includes('case3') || k.toLowerCase().startsWith('c3-') || k.toLowerCase().includes('timeline') || k.toLowerCase().includes('board')) {
+      toDelete.push(k);
+    }
+  }
+  toDelete.forEach(k => localStorage.removeItem(k));
+}
+
+document.addEventListener('click', (e) => {
+  const exitLink = e.target.closest('a[data-exit]');
+  if (!exitLink) return;
+  e.preventDefault();
+  clearCase3Storage();
+  window.location.href = exitLink.href;
+});

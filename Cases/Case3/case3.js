@@ -5,6 +5,31 @@ const loadJSON = (p) => fetch(p).then(r=>r.json());
 const show = (n) => n.classList.add('show');
 const hide = (n) => n.classList.remove('show');
 
+// Wipes ALL Case 3 progress stored in the browser
+// Clear all Case 3 localStorage and then navigate when any [data-exit] link is clicked
+function clearCase3Storage() {
+  const toDelete = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (!k) continue;
+    // catch timeline + board + any case3-prefixed keys
+    if (k.toLowerCase().includes('case3') || k.toLowerCase().startsWith('c3-')) {
+      toDelete.push(k);
+    }
+  }
+  toDelete.forEach(k => localStorage.removeItem(k));
+}
+
+document.addEventListener('click', (e) => {
+  const exitLink = e.target.closest('a[data-exit]');
+  if (!exitLink) return;
+  e.preventDefault();
+  clearCase3Storage();
+  window.location.href = exitLink.href;
+});
+
+
+
 const BASE = './data/';
 
 // Load data
@@ -45,15 +70,39 @@ if (goBtn) {
 const modal = el('#modal');
 const modalTitle = el('#modalTitle');
 const modalBody  = el('#modalBody');
-const openModal = (title, html) => {
+
+function openModal(title, html) {
   modalTitle.textContent = title;
   modalBody.innerHTML = html;
-  show(modal);
-  modal.setAttribute('aria-hidden','false');
-};
-const closeModal = () => { hide(modal); modal.setAttribute('aria-hidden','true'); };
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  modal.style.display = 'block';
+  // Force a reflow before adding the show class for the transition
+  modal.offsetHeight;
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden', 'false');
+  setModalOpen(true);
+}
+
+function closeModal() {
+  modal.classList.remove('show');
+  document.body.style.overflow = ''; // Restore scrolling
+  // Wait for transition to finish before hiding
+  setTimeout(() => {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    setModalOpen(false);
+  }, 300); // Match the CSS transition duration
+}
+// Modal close handlers
 el('.modal__close').addEventListener('click', closeModal);
 el('.modal__backdrop').addEventListener('click', closeModal);
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('show')) {
+    closeModal();
+  }
+});
 
 els('[data-modal]').forEach(btn=>{
   btn.addEventListener('click', ()=>{
@@ -149,7 +198,8 @@ els('[data-modal]').forEach(btn=>{
         { id:'front',  name:'Stage Front',       top:47, left:40 },
         { id:'lane',   name:'Artisan Lane Exit', top:48, left:72 },
         { id:'food',   name:'Food Court',        top:73, left:78 },
-        { id:'tool',   name:'Tool Shed', top:21, left:78 }
+        { id:'tool',   name:'Tool Shed', top:21, left:78 },
+        { id:'ops',    name:'Festival Ops Tent', top:56, left:78 }
       ];
 
       openModal('Festival Map', `
@@ -280,6 +330,9 @@ data.timeline.forEach(e => {
   }
 });
 
+// Debug log to check events
+console.log('Timeline events loaded:', eventsByMinute);
+
 function setHandleAt(minute) {
   minute = Math.max(0, Math.min(60, Math.round(minute)));
   rangeEl.value = String(minute);
@@ -294,20 +347,104 @@ function setHandleAt(minute) {
   timeBadge.style.left = leftPx + 'px';
 
   const evs = eventsByMinute[minute];
-  if (evs) {
-    pop.innerHTML = `
-      <h5>${timeStr}</h5>
-      ${evs.map(e => `<p><b>${e.who}</b> at <b>${e.where}</b>: ${e.event}</p>`).join('')}
-    `;
-    pop.style.left = leftPx + 'px';
-    pop.hidden = false;
+if (evs) {
+  const timeStr = `21:${String(minute).padStart(2, '0')}`;
+  pop.innerHTML = `
+    <h5>${timeStr}</h5>
+    ${evs.map(e => `<p><b>${e.who}</b> at <b>${e.where}</b>: ${e.event}</p>`).join('')}
+  `;
+
+  // 1) Get handle center (viewport coords) and rail Y (viewport coords)
+  const h = handle.getBoundingClientRect();
+  const centerX = h.left + h.width / 2 + window.scrollX;
+
+  const t = trackEl.getBoundingClientRect();
+  const anchorY = t.top + window.scrollY; // rail line
+
+  // Make pop visible to measure width/height
+  pop.style.display = 'block';
+  pop.classList.remove('below');
+  pop.style.left = '0px';
+  pop.style.top = '0px';
+
+  const popW = pop.offsetWidth;
+  const popH = pop.offsetHeight;
+
+  // 2) Horizontal clamping to viewport with margin
+  const margin = 12;
+  const viewLeft  = window.scrollX + margin + popW / 2;
+  const viewRight = window.scrollX + window.innerWidth - margin - popW / 2;
+
+  let clampedX = Math.max(viewLeft, Math.min(viewRight, centerX));
+  pop.style.left = clampedX + 'px';
+  pop.style.top  = anchorY + 'px'; // we anchor to the rail; CSS moves it above
+
+  // 3) Shift arrow so it still points to the handle
+  //    (limit so arrow never leaves the bubble)
+  const arrowMax = (popW / 2) - 14; // 14px safety from edges
+  const shift = Math.max(-arrowMax, Math.min(arrowMax, centerX - clampedX));
+  pop.style.setProperty('--arrow-shift', `${shift}px`);
+
+  // 4) Flip below if not enough space above the rail
+  const spaceAbove = (t.top) - 10; // px to top of viewport minus a small gap
+  if (spaceAbove < popH) {
+    pop.classList.add('below');     // CSS drops it under the rail
   } else {
-    pop.hidden = true;
+    pop.classList.remove('below');
+  }
+} else {
+  pop.style.display = 'none';
+}
+
+}
+
+// Timeline state management
+function setTimelineActive(active) {
+  document.body.classList.toggle('timeline-active', active);
+  if (!active) {
+    pop.style.display = 'none';
+  } else if (!document.body.classList.contains('modal-open')) {
+    setHandleAt(Number(rangeEl.value)); // Refresh the popover
   }
 }
 
-// native range input drives the handle
-rangeEl.addEventListener('input', e => setHandleAt(Number(e.target.value)));
+// Handle modal state
+function setModalOpen(open) {
+  document.body.classList.toggle('modal-open', open);
+  if (open) {
+    setTimelineActive(false);
+  }
+}
+
+// Timeline event handlers
+rangeEl.addEventListener('input', e => {
+  setHandleAt(Number(e.target.value));
+});
+
+rangeEl.addEventListener('mouseover', () => {
+  if (pop.style.display === 'block') {
+    pop.style.opacity = '1';
+  }
+});
+
+// Handle drag events
+handle.addEventListener('mousedown', () => {
+  document.body.classList.add('timeline-dragging');
+});
+
+window.addEventListener('mouseup', () => {
+  document.body.classList.remove('timeline-dragging');
+});
+
+// Keep popover visible during interaction
+trackEl.addEventListener('mousemove', (e) => {
+  if (document.body.classList.contains('timeline-dragging')) {
+    const rect = trackEl.getBoundingClientRect();
+    const position = (e.clientX - rect.left) / rect.width;
+    const minute = Math.round(position * 60);
+    setHandleAt(minute);
+  }
+});
 
 // drag the custom handle
 (() => {
@@ -379,6 +516,7 @@ function populateAnswerDropdowns() {
 
   // Use concise, guided choices for method & motive
   const methods = [
+    'Pushed from belfry',
     'Pushed from belfry with rope involved',
     'Pushed with grease on railing',
     'Pushed; rope + grease',
@@ -420,26 +558,27 @@ const suspectsWrap = el('#suspectChips');
 data.suspects.forEach(s=> suspectsWrap.append(
   mkChip(`👤 <b>${s.name}</b> <small>— ${s.role}</small>`, {
     title:s.name, type:'Suspect',
-    body:`Role: ${s.role}\nAlibi: ${s.alibi}\nMotive: ${s.motive}\nNotes: ${s.notes}`
+    body: `${s.role}`
   })
 ));
 const motives = [
-  {name:'Artifact Smuggling Profits', who:'Dr. Marcus Hale', desc:'Sale of museum artifacts to private buyers.'},
-  {name:'Budget Scandal Fallout', who:'Lena Ortiz', desc:'Reputation risk from pending article.'},
-  {name:'Reputation/Access Control', who:'Tao Nguyen', desc:'Key control liability & reputation.'},
-  {name:'Career Rivalry', who:'Priya Nandakumar', desc:'Leaked interview caused conflict.'},
-  {name:'Debt/Payment', who:'Evan Brooks', desc:'Cash “consulting” from Hale.'}
+  {name:'Artifact Smuggling Profits', desc:'Sale of museum artifacts to private buyers.'},
+  {name:'Budget Scandal Fallout', desc:'Reputation risk from pending article.'},
+  {name:'Reputation/Access Control', desc:'access control liability & reputation.'},
+  {name:'Career Rivalry', desc:'Leaked interview caused conflict.'},
+  {name:'Debt/Payment', desc:'Financial motive from debts owed.'},
+  {name:'Other', desc:'Unspecified personal motive.'}
 ];
 const motivesWrap = el('#motiveChips');
 motives.forEach(m=> motivesWrap.append(
-  mkChip(`🎯 <b>${m.name}</b> <small>(${m.who})</small>`, {
-    title:m.name, type:'Motive', body:`Suspect: ${m.who}\nWhy: ${m.desc}`
+  mkChip(`🎯 <b>${m.name}</b> <small>(${m.desc})</small>`, {
+    title:m.name, type:'Motive', body:m.desc
   })
 ));
 const cluesWrap = el('#clueChips');
 data.clues.forEach(c=> cluesWrap.append(
   mkChip(`🧩 <b>${c.name}</b> <small>— ${c.at}</small>`, {
-    title:c.name, type:'Clue', body:`Found at: ${c.at}\n${c.hint}`
+    title:c.name, type:'Evidence', body:`Found at: ${c.at}\n${c.hint}`
   })
 ));
 // const timeWrap = el('#timeChips');
@@ -584,45 +723,53 @@ function updateProgress(){
   el('#progressBadge').textContent = `Progress: ${pct}%`;
 }
 
-// Hints (no spoilers)
-el('#hintBtn').addEventListener('click', ()=>{
-  let hint = 'Try connecting timeline events to related locations and suspects.';
-  if(!cards.some(c=>/Clocktower|Belfry/i.test(c.title))) hint = 'Get a Clocktower/Belfry card on the board from the Locations or map.';
-  if(!cards.some(c=>/21:40/.test(c.title)||/21:40/.test(c.body))) hint = 'There is a critical event at 21:40—make it a card.';
-  if(!cards.some(c=>/artifact|smuggl/i.test(c.body))) hint = 'Look for paperwork about “donors” that is really a buyer list.';
-  el('#checkResult').textContent = `Hint: ${hint}`;
-});
+// // Hints (no spoilers)
+// el('#hintBtn').addEventListener('click', ()=>{
+//   let hint = 'Try connecting timeline events to related locations and suspects.';
+//   if(!cards.some(c=>/Clocktower|Belfry/i.test(c.title))) hint = 'Get a Clocktower/Belfry card on the board from the Locations or map.';
+//   if(!cards.some(c=>/21:40/.test(c.title)||/21:40/.test(c.body))) hint = 'There is a critical event at 21:40—make it a card.';
+//   if(!cards.some(c=>/artifact|smuggl/i.test(c.body))) hint = 'Look for paperwork about “donors” that is really a buyer list.';
+//   el('#checkResult').textContent = `Hint: ${hint}`;
+// });
 
-// Validation (non-spoiler, stays on Screen 2)
-el('#solutionForm').addEventListener('submit', (e)=>{
+el('#solutionForm').addEventListener('submit', (e) => {
   e.preventDefault();
+  e.stopPropagation();   // ✅ Also stop bubbling up
+
   const fd = new FormData(e.target);
   const guess = {
-    culprit:(fd.get('culprit')||'').toLowerCase(),
-    time:(fd.get('time')||''),
-    location:(fd.get('location')||'').toLowerCase(),
-    method:(fd.get('method')||'').toLowerCase(),
-    motive:(fd.get('motive')||'').toLowerCase()
+    culprit: (fd.get('culprit') || '').toLowerCase(),
+    time: (fd.get('time') || ''),
+    location: (fd.get('location') || '').toLowerCase(),
+    method: (fd.get('method') || '').toLowerCase(),
+    motive: (fd.get('motive') || '').toLowerCase()
   };
+
   const score = [
     guess.culprit.includes('marcus hale'),
     guess.time.includes('21:40'),
     guess.location.includes('clocktower') && guess.location.includes('belfry'),
-    (guess.method.includes('push')||guess.method.includes('pushed')) && (guess.method.includes('rope')||guess.method.includes('grease')),
-    (guess.motive.includes('artifact') && (guess.motive.includes('smuggl')||guess.motive.includes('sell')))
+    guess.method.includes('pushed') && guess.method.includes('belfry') && !guess.method.includes('grease') && !guess.method.includes('rope'),
+    guess.motive.includes('artifact') && (guess.motive.includes('smuggl') || guess.motive.includes('sell'))
   ];
+
   const correct = score.filter(Boolean).length;
-  if(correct===5){ el('#checkResult').textContent = '✅ Correct!'; }
-  else{
+
+  if (correct === 5) {
+    el('#checkResult').textContent = '✅ Correct!';
+    clearCase3Storage();  
+  } else {
     const hints = [
       'Culprit not quite right.',
       'Time needs adjusting.',
       'Location is off.',
-      'Method description is missing key elements.',
-      'Motive needs to be more specific.'
-    ].filter((_,i)=>!score[i]).slice(0,2);
+      'Reconsider the method.',
+      'Motive needs work.'
+    ].filter((_, i) => !score[i]).slice(0, 2);
+
     el('#checkResult').textContent = `❌ Not yet. ${correct}/5 match. ${hints.join(' ')}`;
   }
+
   updateProgress();
 });
 

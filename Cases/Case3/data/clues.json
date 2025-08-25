@@ -2,7 +2,7 @@
   {"id":"folio","name":"Leather Folio","at":"VIP Lounge","hint":"Holds 'donor' initials that are actually buyer/handler codes."},
   {"id":"grease","name":"Clock Grease","at":"Clocktower Stairs","hint":"Fresh smear on 3rd landing rail; matches rope stains."},
   {"id":"vod","name":"Livestream VOD","at":"Riverfront Stage","hint":"Priya on cam 21:27–21:35 (alibi)."},
-  {"id":"hatch","name":"Hatch Signout","at":"Key Desk","hint":"Tao unlocks at 21:18 for Hale; no return log."},
+  {"id":"hatch","name":"Hatch Signout","at":"Security Tent","hint":"Tao signs out Hatch key; no return log."},
   {"id":"motion","name":"Motion Sensor Log","at":"Gear Room","hint":"Two bodies at 21:38 indicate a confrontation."},
-  {"id":"schedule","name":"AV Schedule","at":"Stage Ops","hint":"Hale’s 'intro' scheduled as a file, not live."}
+  {"id":"schedule","name":"AV Schedule","at":"Stage Front","hint":"Hale’s 'intro' scheduled as a file, not live."}
 ]

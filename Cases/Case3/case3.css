@@ -116,7 +116,11 @@ button:hover,.btn-link:hover{ filter:brightness(1.04) }
 .chip small{color:var(--muted)}
 
 /* ===== Timeline strip (read-only) ===== */
-.timeline-strip{ margin-top:12px }
+.timeline-strip{ 
+  margin-top:12px;
+  position: relative;
+  z-index: 1; /* Lower z-index for timeline */
+}
 .timeline-row{ display:flex; align-items:center; gap:8px; margin-bottom:8px }
 .timeline-list{
   list-style:none; margin:0; padding:0;
@@ -151,14 +155,32 @@ button:hover,.btn-link:hover{ filter:brightness(1.04) }
 .connector{ position:absolute; top:0; left:0; pointer-events:none }
 
 /* ===== Modal (shared) ===== */
-.modal{ position:fixed; inset:0; display:none }
-.modal.show{ display:block }
-.modal__backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.5) }
+.modal { 
+  position: fixed; 
+  inset: 0; 
+  z-index: 9000;
+  display: none; /* Hide by default */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.modal.show{ 
+  display: block;
+  opacity: 1;
+}
+.modal__backdrop{ 
+  position: fixed; /* Changed from absolute */
+  inset: 0; 
+  background: rgba(0,0,0,.5);
+  z-index: 9000;
+}
 .modal__dialog{
-  position:relative; z-index:1; max-width:750px;
-  margin:8vh auto; background:#fdf7e3;
+  position: relative; 
+  z-index: 9001;
+  max-width: 750px;
+  margin: 8vh auto; 
+  background: #fdf7e3;
   border:2px solid var(--edge); border-radius:14px; padding:10px;
-  max-height:85vh; overflow:auto; box-shadow:0 0 20px rgba(0,0,0,.4)
+  max-height:85vh; overflow:auto; box-shadow:0 0 20px rgba(0,0,0,.4); 
 }
 .modal__close{
   position:absolute; top:10px; right:8px;
@@ -452,9 +474,15 @@ button:hover,.btn-link:hover{ filter:brightness(1.04) }
 #timeRange::-moz-range-thumb{ width:0; height:0; border:0; }
 
 .timeline-strip {
-  position: relative;  /* needed for absolute popover positioning */
-  overflow: visible !important;  /* allow popover to escape */
-  z-index: 1;          /* ensure it's above the board background */
+  position: relative;
+  overflow: visible !important;
+  z-index: 1;
+}
+
+/* Timeline container should allow overflow */
+.panel.timeline-strip {
+  overflow: visible !important;
+  position: relative;
 }
 
 .numline-handle:active{ cursor:grabbing; }
@@ -462,11 +490,11 @@ button:hover,.btn-link:hover{ filter:brightness(1.04) }
 .numline-popover h5{ margin:0 0 4px; font-size:1rem; }
 .numline-popover p{ margin:0; font-size:.95rem; color:var(--muted); }
 
-
 /* ===== Number-line compact layout ===== */
 .numline {
   position: relative;
   padding: 10px 14px 60px; /* less padding below */
+  z-index: 1;
 }
 
 /* Track line */
@@ -537,33 +565,59 @@ button:hover,.btn-link:hover{ filter:brightness(1.04) }
 }
 
 /* Event popover compact */
-/* Timeline popover forced to front */
-#numlinePopover {
-  position: absolute;
-  top: -65px;            /* place ABOVE the slider */
-  transform: translateX(-50%);
-  min-width: 220px;
-  max-width: 300px;
-  background: #fffbe9;
-  border: 2px solid var(--edge);
-  border-radius: 8px;
-  padding: 8px 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  color: var(--ink);
-  z-index: 9999;         /* BRING TO FRONT */
-  pointer-events: none;  /* avoid blocking slider interaction */
+
+/* Show popover only when slider is active */
+.timeline-active #numlinePopover {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Optional: arrow under popover */
-#numlinePopover::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
+/* Hide popover when modal is open */
+.modal-open #numlinePopover {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+.modal-open .numline,
+.modal-open #numlinePopover { pointer-events:none; opacity:0; }
+
+/* Popover anchored to the rail; placed by JS */
+#numlinePopover{
+  position: fixed;
+  transform: translate(-50%, calc(-100% - 10px)); /* above the rail by default */
+  min-width: 220px;
+  max-width: 320px;
+  background:#fffbe9;
+  border:2px solid var(--edge);
+  border-radius:8px;
+  padding:8px 12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.25);
+  color:var(--ink);
+  pointer-events:none;
+  z-index: 8990; /* under modal, over page */
+}
+
+/* Arrow pointing to rail; we shift it with --arrow-shift from JS */
+#numlinePopover::after{
+  content:"";
+  position:absolute;
+  bottom:-8px;
+  left: calc(50% + var(--arrow-shift, 0px));
   transform: translateX(-50%);
-  border-width: 8px 8px 0 8px;
-  border-style: solid;
-  border-color: #fffbe9 transparent transparent transparent;
+  border-width:0 8px 8px 8px;
+  border-style:solid;
+  border-color:transparent transparent #fffbe9 transparent;
   filter: drop-shadow(0 1px 0 var(--edge));
+}
+
+/* If we flip below the rail */
+#numlinePopover.below{
+  transform: translate(-50%, 10px); /* below the rail */
+}
+#numlinePopover.below::after{
+  top:-8px;
+  bottom:auto;
+  border-width:8px 8px 0 8px;
+  border-color:#fffbe9 transparent transparent transparent;
+  filter: drop-shadow(0 -1px 0 var(--edge));
 }
 

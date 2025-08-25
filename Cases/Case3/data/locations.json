@@ -7,7 +7,7 @@
   {
     "id": "clockb",
     "name": "Clocktower Base",
-    "desc": "Festival entrance near the tower; Anika was found here."
+    "desc": "Festival entrance near the tower. Frequent foot traffic."
   },
   {
     "id": "stage",
@@ -47,7 +47,12 @@
   {
     "id": "tunnel",
     "name": "Service Tunnels",
-    "desc": "Maintenance hatch at tower base; motion trigger at 21:38."
+    "desc": "Runs beneath the Clocktower; Maintenance hatch at tower base."
+  },
+  {
+    "id": "ops",
+    "name": "Festival Ops Tent",
+    "desc": "Central command post; radio communications hub."
   }
 ]
 

@@ -3,7 +3,7 @@
     "t": "21:05",
     "who": "Anika Rao",
     "where": "VIP Lounge",
-    "event": "Leaves carrying a leather folio."
+    "event": "Seen carrying a leather folio."
   },
   {
     "t": "21:12",
@@ -14,7 +14,7 @@
   {
     "t": "21:18",
     "who": "Tao Nguyen",
-    "where": "Clocktower Hatch",
+    "where": "Security Tent",
     "event": "Signs out maintenance hatch key for Hale (key not confirmed returned)."
   },
   {
@@ -36,10 +36,22 @@
     "event": "Festival intro video plays (audio tech unsure if live or pre-recorded)."
   },
   {
+    "t": "21:32",
+    "who": "Lena Ortiz",
+    "where": "Festival Ops",
+    "event": "(time window start) Seen multiple times near ops tent talking on comms; food vendor unsure if she stayed entire time."
+  },
+  {
     "t": "21:34",
     "who": "Anika Rao",
     "where": "Clocktower Base",
     "event": "Spotted rushing past vendor #14 with leather folder, texting: 'Got the list. Meeting top.'"
+  },
+  {
+    "t": "21:35",
+    "who": "Priya Nandakumar",
+    "where": "Riverfront Stage",
+    "event": "Livestream ends (teen streamer confirms partial alibi)."
   },
   {
     "t": "21:38",
@@ -57,19 +69,19 @@
     "t": "21:46",
     "who": "Unknown",
     "where": "Artisan Lane Exit",
-    "event": "Maintenance crew spots dusty-jacketed figure leaving tunnels quickly; ID unconfirmed (Hale later emerges here)."
+    "event": "Maintenance crew spots dusty-jacketed figure leaving tunnels quickly; ID unconfirmed. Height taller than witness (approx. 5'7'')."
+  },
+   {
+    "t": "21:50",
+    "who": "Lena Ortiz",
+    "where": "Festival Ops",
+    "event": "(time window end) Seen multiple times near ops tent talking on comms; food vendor unsure if she stayed entire time."
   },
   {
     "t": "21:52",
     "who": "Evan Brooks",
     "where": "Tool Shed",
     "event": "Returns rope & harness; assistant notes rope dirtier/greasier than before."
-  },
-  {
-    "t": "21:35-21:50",
-    "who": "Lena Ortiz",
-    "where": "Festival Ops",
-    "event": "Seen multiple times near ops tent talking on comms; food vendor unsure if she stayed entire time."
   },
   {
     "t": "21:58",
